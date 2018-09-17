@@ -27,17 +27,13 @@ class SinaSpider(scrapy.Spider):
 		for url in self.urls:
 			yield scrapy.Request(url = url, callback=self.parse)
 
-		'''
 		for i in range(1, 272, 1):
 			url = self.pre_investment_adviser.format(i)
 			yield scrapy.Request(url = url, callback=self.parse)
-		'''
 
-		'''
 		for i in range(1, 100, 1):
 			url = self.pre_url.format(i)
 			yield scrapy.Request(url = url, callback=self.parse)
-		'''
 
 	def parse(self, response):
 		crawler.info("response:%s", response)
