@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Scrapy settings for LordSpider project
+# Scrapy settings for GaiaSpider project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -9,10 +9,10 @@
 #     http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
 #     http://scrapy.readthedocs.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = 'Lord'
+BOT_NAME = 'Gaia'
 
-SPIDER_MODULES = ['Lord.spiders']
-NEWSPIDER_MODULE = 'Lord.spiders'
+SPIDER_MODULES = ['Gaia.spiders']
+NEWSPIDER_MODULE = 'Gaia.spiders'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
@@ -55,13 +55,13 @@ COOKIES_ENABLED = False
 # Enable or disable spider middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/spider-middleware.html
 #SPIDER_MIDDLEWARES = {
-#    'LordSpider.middlewares.EastmoneySpiderSpiderMiddleware': 543,
+#    'GaiaSpider.middlewares.EastmoneySpiderSpiderMiddleware': 543,
 #}
 
 # Enable or disable downloader middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
 DOWNLOADER_MIDDLEWARES = {
-   'Lord.middlewares.RotateUserAgentMiddleware': 110,
+   'Gaia.middlewares.RotateUserAgentMiddleware': 110,
 }
 
 # Enable or disable extensions
@@ -73,12 +73,12 @@ DOWNLOADER_MIDDLEWARES = {
 # Configure item pipelines
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-    'Lord.pipelines.MongoDBPipeline': 300,
+    'Gaia.pipelines.MongoDBPipeline': 300,
     'scrapy_redis.pipelines.RedisPipeline': 300
 }
 MONGODB_SERVER = "47.100.3.16"
 MONGODB_PORT = 27017
-MONGODB_DB = "lordspider"
+MONGODB_DB = "gaiaspider"
 MONGODB_USER = "root"
 MONGODB_PASSWORD = "root"
 

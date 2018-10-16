@@ -7,13 +7,13 @@ from urllib.parse import urlparse
 import scrapy
 from scrapy import Spider
 
-from Lord.items import *
-from Lord.logger import crawler
+from Gaia.items import *
+from Gaia.logger import crawler
 
-logger = logging.getLogger('Lord')
+logger = logging.getLogger('Gaia')
 
 class SinaSpider(scrapy.Spider):
-	name = "Lord"
+	name = "Gaia"
 	rotete_user_agent = True
 
 	#在关闭爬虫之前,保存资源

@@ -6,7 +6,7 @@ import redis
 from scrapy import log
 from scrapy.statscol import StatsCollector
 
-from Lord.utils import color
+from Gaia.utils import color
 
 # default values
 REDIS_HOST = '192.168.88.103'

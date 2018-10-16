@@ -13,7 +13,7 @@ import redis
 from scrapy.conf import settings
 from scrapy.exceptions import DropItem
 from .logger.log import crawler
-from Lord.items import *
+from Gaia.items import *
 
 class MongoDBPipeline(object):
 

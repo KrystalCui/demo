@@ -5,7 +5,7 @@
 import os
 import sys
 
-from Lord.utils import termcolors
+from Gaia.utils import termcolors
 
 
 def supports_color():
