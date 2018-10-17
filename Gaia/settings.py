@@ -73,14 +73,14 @@ DOWNLOADER_MIDDLEWARES = {
 # Configure item pipelines
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-    'Gaia.pipelines.MongoDBPipeline': 300,
+    'Gaia.pipelines.pipelines.MongoDBPipeline': 300,
     'scrapy_redis.pipelines.RedisPipeline': 300
 }
-MONGODB_SERVER = "47.100.3.16"
-MONGODB_PORT = 27017
+MONGODB_SERVER = "192.168.88.101"
+MONGODB_PORT = 3307
 MONGODB_DB = "gaiaspider"
-MONGODB_USER = "root"
-MONGODB_PASSWORD = "root"
+MONGODB_USER = "gaiaspider"
+MONGODB_PASSWORD = "gaiaspider"
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See http://doc.scrapy.org/en/latest/topics/autothrottle.html
@@ -136,9 +136,9 @@ DUPEFILTER_CLASS = "scrapy_redis.dupefilter.RFPDupeFilter"
 
 # DEPTH_LIMIT = 1
 
-REDIS_HOST = '192.168.88.103'
-REDIS_PORT = 3308
-REDIS_DB = 3
+REDIS_HOST = '47.100.3.16'
+REDIS_PORT = 6379
+REDIS_DB = 0
 REDIS_PASSWORD = ''
 
 

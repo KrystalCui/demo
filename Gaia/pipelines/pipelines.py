@@ -12,7 +12,7 @@ import pymongo
 import redis
 from scrapy.conf import settings
 from scrapy.exceptions import DropItem
-from .logger.log import crawler
+from Gaia.logger.log import crawler
 from Gaia.items import *
 
 class MongoDBPipeline(object):

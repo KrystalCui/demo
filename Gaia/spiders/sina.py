@@ -3,6 +3,7 @@ import logging
 import random
 import uuid
 from urllib.parse import urlparse
+from scrapy.selector import HtmlXPathSelector
 
 import scrapy
 from scrapy import Spider

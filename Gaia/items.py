@@ -45,3 +45,13 @@ class F10Item(Item):
     deliveryDate = Field()
     deliveryAddress = Field()
     additionalInfo = Field()
+
+class CourseItem(Item):
+    _id = Field()
+    title = Field()
+    number = Field()
+    area = Field()
+    huxing = Field()
+    tel = Field()
+
+

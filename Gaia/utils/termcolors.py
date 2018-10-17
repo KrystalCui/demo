@@ -1,24 +1,26 @@
 #!/usr/bin/env python3
 # # -*- coding: utf-8 -*-
-# author:Samray <samrayleung@gmail.com>
-color_names = ('black', 'red', 'green', 'yellow',
-               'blue', 'magenta', 'cyan', 'white')
+# author:Samray
+
+color_names = ('black', 'red', 'green', 'yellow', 'blue', 'magenta', 'cyan', 'white')
 foreground = dict([(color_names[x], '3%s' % x) for x in range(8)])
 background = dict([(color_names[x], '4%s' % x) for x in range(8)])
 
 RESET = '0'
-opt_dict = {'bold': '1', 'underscore': '4',
-            'blink': '5', 'reverse': '7', 'conceal': '8'}
-
+opt_dict = {'bold': '1', 'underscore': '4', 'blink': '5', 'reverse': '7', 'conceal': '8'}
 
 def colorize(text='', opts=(), **kwargs):
     """
     Returns your text, enclosed in ANSI graphics codes.
+
     Depends on the keyword arguments 'fg' and 'bg', and the contents of
     the opts tuple/list.
+
     Returns the RESET code if no parameters are given.
+
     Valid colors:
         'black', 'red', 'green', 'yellow', 'blue', 'magenta', 'cyan', 'white'
+
     Valid options:
         'bold'
         'underscore'
@@ -26,6 +28,7 @@ def colorize(text='', opts=(), **kwargs):
         'reverse'
         'conceal'
         'noreset' - string will not be auto-terminated with the RESET code
+
     Examples:
         colorize('hello', fg='red', bg='blue', opts=('blink',))
         colorize()
@@ -38,7 +41,7 @@ def colorize(text='', opts=(), **kwargs):
     code_list = []
     if text == '' and len(opts) == 1 and opts[0] == 'reset':
         return '\x1b[%sm' % RESET
-    for k, v in kwargs.items():
+    for k, v in kwargs.iteritems():
         if k == 'fg':
             code_list.append(foreground[v])
         elif k == 'bg':
@@ -50,10 +53,10 @@ def colorize(text='', opts=(), **kwargs):
         text = text + '\x1b[%sm' % RESET
     return ('\x1b[%sm' % ';'.join(code_list)) + text
 
-
 def make_style(opts=(), **kwargs):
     """
     Returns a function with default parameters for colorize()
+
     Example:
         bold_red = make_style(opts=('bold',), fg='red')
         print bold_red('hello')
@@ -61,7 +64,6 @@ def make_style(opts=(), **kwargs):
         COMMENT = make_style(fg='blue', opts=('bold',))
     """
     return lambda text: colorize(text, opts, **kwargs)
-
 
 NOCOLOR_PALETTE = 'nocolor'
 DARK_PALETTE = 'dark'
@@ -84,60 +86,67 @@ PALETTES = {
         'HTTP_SERVER_ERROR': {},
     },
     DARK_PALETTE: {
-        'ERROR':        {'fg': 'red', 'opts': ('bold',)},
-        'NOTICE':       {'fg': 'yellow'},
-        'SQL_FIELD':    {'fg': 'green', 'opts': ('bold',)},
-        'SQL_COLTYPE':  {'fg': 'green'},
-        'SQL_KEYWORD':  {'fg': 'yellow'},
-        'SQL_TABLE':    {'opts': ('bold',)},
-        'HTTP_INFO':         {'opts': ('bold',)},
-        'HTTP_SUCCESS':      {},
-        'HTTP_REDIRECT':     {'fg': 'green'},
-        'HTTP_NOT_MODIFIED': {'fg': 'cyan'},
-        'HTTP_BAD_REQUEST':  {'fg': 'red', 'opts': ('bold',)},
-        'HTTP_NOT_FOUND':    {'fg': 'yellow'},
-        'HTTP_SERVER_ERROR': {'fg': 'magenta', 'opts': ('bold',)},
+        'ERROR':        { 'fg': 'red', 'opts': ('bold',) },
+        'NOTICE':       { 'fg': 'yellow' },
+        'SQL_FIELD':    { 'fg': 'green', 'opts': ('bold',) },
+        'SQL_COLTYPE':  { 'fg': 'green' },
+        'SQL_KEYWORD':  { 'fg': 'yellow' },
+        'SQL_TABLE':    { 'opts': ('bold',) },
+        'HTTP_INFO':         { 'opts': ('bold',) },
+        'HTTP_SUCCESS':      { },
+        'HTTP_REDIRECT':     { 'fg': 'green' },
+        'HTTP_NOT_MODIFIED': { 'fg': 'cyan' },
+        'HTTP_BAD_REQUEST':  { 'fg': 'red', 'opts': ('bold',) },
+        'HTTP_NOT_FOUND':    { 'fg': 'yellow' },
+        'HTTP_SERVER_ERROR': { 'fg': 'magenta', 'opts': ('bold',) },
     },
     LIGHT_PALETTE: {
-        'ERROR':        {'fg': 'red', 'opts': ('bold',)},
-        'NOTICE':       {'fg': 'yellow'},
-        'SQL_FIELD':    {'fg': 'green', 'opts': ('bold',)},
-        'SQL_COLTYPE':  {'fg': 'green'},
-        'SQL_KEYWORD':  {'fg': 'blue'},
-        'SQL_TABLE':    {'opts': ('bold',)},
-        'HTTP_INFO':         {'opts': ('bold',)},
-        'HTTP_SUCCESS':      {},
-        'HTTP_REDIRECT':     {'fg': 'green', 'opts': ('bold',)},
-        'HTTP_NOT_MODIFIED': {'fg': 'green'},
-        'HTTP_BAD_REQUEST':  {'fg': 'red', 'opts': ('bold',)},
-        'HTTP_NOT_FOUND':    {'fg': 'red'},
-        'HTTP_SERVER_ERROR': {'fg': 'magenta', 'opts': ('bold',)},
+        'ERROR':        { 'fg': 'red', 'opts': ('bold',) },
+        'NOTICE':       { 'fg': 'yellow' },
+        'SQL_FIELD':    { 'fg': 'green', 'opts': ('bold',) },
+        'SQL_COLTYPE':  { 'fg': 'green' },
+        'SQL_KEYWORD':  { 'fg': 'blue' },
+        'SQL_TABLE':    { 'opts': ('bold',) },
+        'HTTP_INFO':         { 'opts': ('bold',) },
+        'HTTP_SUCCESS':      { },
+        'HTTP_REDIRECT':     { 'fg': 'green', 'opts': ('bold',) },
+        'HTTP_NOT_MODIFIED': { 'fg': 'green' },
+        'HTTP_BAD_REQUEST':  { 'fg': 'red', 'opts': ('bold',) },
+        'HTTP_NOT_FOUND':    { 'fg': 'red' },
+        'HTTP_SERVER_ERROR': { 'fg': 'magenta', 'opts': ('bold',) },
     }
 }
 DEFAULT_PALETTE = DARK_PALETTE
 
-
 def parse_color_setting(config_string):
     """Parse a SPIDER_COLORS environment variable to produce the system palette
+
     The general form of a pallete definition is:
+
         "palette;role=fg;role=fg/bg;role=fg,option,option;role=fg/bg,option,option"
+
     where:
         palette is a named palette; one of 'light', 'dark', or 'nocolor'.
         role is a named style used by SPIDER
         fg is a background color.
         bg is a background color.
         option is a display options.
+
     Specifying a named palette is the same as manually specifying the individual
     definitions for each role. Any individual definitions following the pallete
     definition will augment the base palette definition.
+
     Valid roles:
         'error', 'notice', 'sql_field', 'sql_coltype', 'sql_keyword', 'sql_table',
         'http_info', 'http_success', 'http_redirect', 'http_bad_request',
         'http_not_found', 'http_server_error'
+
     Valid colors:
         'black', 'red', 'green', 'yellow', 'blue', 'magenta', 'cyan', 'white'
+
     Valid options:
         'bold', 'underscore', 'blink', 'reverse', 'conceal'
+
     """
     if not config_string:
         return PALETTES[DEFAULT_PALETTE]

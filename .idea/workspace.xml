@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7b9d9374-ba3f-43fc-8211-85c88daf4229" name="Default" comment="" />
+    <list default="true" id="7b9d9374-ba3f-43fc-8211-85c88daf4229" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/Gaia/items.py" afterPath="$PROJECT_DIR$/Gaia/items.py" />
+      <change beforePath="$PROJECT_DIR$/Gaia/logs/log.log" afterPath="$PROJECT_DIR$/Gaia/logs/log.log" />
+      <change beforePath="$PROJECT_DIR$/Gaia/pipelines.py" afterPath="$PROJECT_DIR$/Gaia/pipelines/pipelines.py" />
+      <change beforePath="$PROJECT_DIR$/Gaia/settings.py" afterPath="$PROJECT_DIR$/Gaia/settings.py" />
+      <change beforePath="$PROJECT_DIR$/Gaia/spiders/sina.py" afterPath="$PROJECT_DIR$/Gaia/spiders/sina.py" />
+      <change beforePath="$PROJECT_DIR$/Gaia/utils/termcolors.py" afterPath="$PROJECT_DIR$/Gaia/utils/termcolors.py" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -11,41 +20,48 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="scrapy.cfg" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/../GaiaSpider/scrapy.cfg">
+      <file leaf-file-name="items.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Gaia/items.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="6" column="10" lean-forward="false" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="10" />
+            <state relative-caret-position="705">
+              <caret line="54" column="17" lean-forward="false" selection-start-line="54" selection-start-column="17" selection-end-line="54" selection-end-column="17" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="log.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../GaiaSpider/Gaia/logger/log.py">
+      <file leaf-file-name="58SameCity.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Gaia/spiders/58SameCity.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-114">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="468">
+              <caret line="37" column="20" lean-forward="false" selection-start-line="37" selection-start-column="20" selection-end-line="37" selection-end-column="20" />
               <folding>
-                <element signature="e#0#9#0" expanded="true" />
+                <element signature="e#0#11#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="graphite.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../GaiaSpider/Gaia/statscol/graphite.py">
+      <file leaf-file-name="sina.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Gaia/spiders/sina.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+            <state relative-caret-position="97">
+              <caret line="52" column="46" lean-forward="false" selection-start-line="52" selection-start-column="42" selection-end-line="52" selection-end-column="46" />
               <folding>
-                <element signature="e#0#13#0" expanded="true" />
+                <element signature="e#0#11#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -60,6 +76,11 @@
       <find>DUPEFILTER_CLASS</find>
       <find>l</find>
       <find>lord</find>
+      <find>COOKIES_ENABLED</find>
+      <find>SCHEDULER</find>
+      <find>urlparse</find>
+      <find>RotateUserAgentMiddleware</find>
+      <find>MongoDBPipel</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -85,6 +106,15 @@
         <option value="$PROJECT_DIR$/Lord/spiders/sina.py" />
         <option value="$PROJECT_DIR$/scrapy.cfg" />
         <option value="$PROJECT_DIR$/../GaiaSpider/Gaia/statscol/graphite.py" />
+        <option value="$PROJECT_DIR$/Gaia/scrapy_redis/scheduler.py" />
+        <option value="$PROJECT_DIR$/Gaia/pipelines/pipelines.py" />
+        <option value="$PROJECT_DIR$/Gaia/scrapy_redis/dupefilter.py" />
+        <option value="$PROJECT_DIR$/Gaia/spiders/sina.py" />
+        <option value="$PROJECT_DIR$/Gaia/utils/termcolors.py" />
+        <option value="$PROJECT_DIR$/Gaia/contrib/downloadmiddleware/google_cache.py" />
+        <option value="$PROJECT_DIR$/Gaia/items.py" />
+        <option value="$PROJECT_DIR$/Gaia/settings.py" />
+        <option value="$PROJECT_DIR$/Gaia/spiders/58SameCity.py" />
       </list>
     </option>
   </component>
@@ -109,38 +139,88 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="GaiaSpider" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GaiaSpider" type="462c0819:PsiDirectoryNode" />
+              <item name="LordSpider" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="GaiaSpider" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GaiaSpider" type="462c0819:PsiDirectoryNode" />
+              <item name="LordSpider" type="462c0819:PsiDirectoryNode" />
               <item name="Gaia" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="GaiaSpider" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GaiaSpider" type="462c0819:PsiDirectoryNode" />
+              <item name="LordSpider" type="462c0819:PsiDirectoryNode" />
+              <item name="Gaia" type="462c0819:PsiDirectoryNode" />
+              <item name="contrib" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GaiaSpider" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LordSpider" type="462c0819:PsiDirectoryNode" />
+              <item name="Gaia" type="462c0819:PsiDirectoryNode" />
+              <item name="contrib" type="462c0819:PsiDirectoryNode" />
+              <item name="downloadmiddleware" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GaiaSpider" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LordSpider" type="462c0819:PsiDirectoryNode" />
               <item name="Gaia" type="462c0819:PsiDirectoryNode" />
               <item name="logger" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GaiaSpider" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LordSpider" type="462c0819:PsiDirectoryNode" />
+              <item name="Gaia" type="462c0819:PsiDirectoryNode" />
+              <item name="pipelines" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GaiaSpider" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LordSpider" type="462c0819:PsiDirectoryNode" />
+              <item name="Gaia" type="462c0819:PsiDirectoryNode" />
+              <item name="scrapy_redis" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GaiaSpider" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LordSpider" type="462c0819:PsiDirectoryNode" />
+              <item name="Gaia" type="462c0819:PsiDirectoryNode" />
+              <item name="spiders" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GaiaSpider" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LordSpider" type="462c0819:PsiDirectoryNode" />
+              <item name="Gaia" type="462c0819:PsiDirectoryNode" />
+              <item name="statscol" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GaiaSpider" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LordSpider" type="462c0819:PsiDirectoryNode" />
+              <item name="Gaia" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="D:/downloads/distribute_crawler-master/woaidu_crawler" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\git\LordSpider\Gaia\pipelines" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\git\LordSpider\Gaia\spiders" />
+      <recent name="D:\git\LordSpider\Gaia\contrib\downloadmiddleware" />
+      <recent name="D:\git\LordSpider\Gaia\utils" />
+      <recent name="D:\git\LordSpider\Gaia\scrapy_redis" />
       <recent name="D:\Project\Company\LordSpider\Lord\spiders" />
     </key>
   </component>
@@ -280,19 +360,20 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1905" height="995" extended-state="6" />
+    <frame x="-8" y="-8" width="1932" height="987" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24192694" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24164927" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21077283" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -311,187 +392,280 @@
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Lord/Lord/spiders/em.py</url>
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Gaia/contrib/downloadmiddleware/google_cache.py</url>
+          <line>3</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="1" />
+      <option name="time" value="2" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Lord/Lord/statscol/__init__.py" />
-    <entry file="file://$PROJECT_DIR$/Lord/Lord/spiders/em.py" />
-    <entry file="file://$USER_HOME$/.PyCharmCE2017.3/system/python_stubs/1262018328/builtins.py" />
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python35/Lib/site-packages/redis/client.py" />
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python35/Lib/site-packages/pymongo/collection.py" />
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python35/Lib/site-packages/pymongo/mongo_client.py" />
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python35/Lib/site-packages/scrapy/item.py" />
-    <entry file="file://$PROJECT_DIR$/Lord/scrapy.cfg" />
-    <entry file="file://$PROJECT_DIR$/Lord/Lord/logs/log.log.2" />
-    <entry file="file://$PROJECT_DIR$/Lord/Lord/logs/log.log.1" />
-    <entry file="file://$PROJECT_DIR$/Lord/Lord/logs/log.log" />
-    <entry file="file://$PROJECT_DIR$/Lord/.idea/Lord.iml" />
-    <entry file="file://$PROJECT_DIR$/Lord/.idea/modules.xml" />
-    <entry file="file://$PROJECT_DIR$/Lord/.idea/workspace.xml" />
-    <entry file="file://$PROJECT_DIR$/Lord/Lord/logger/__init__.py" />
-    <entry file="file://$PROJECT_DIR$/Lord/Lord/logger/log.py" />
-    <entry file="file://$PROJECT_DIR$/Lord/Lord/spiders/__init__.py" />
-    <entry file="file://$PROJECT_DIR$/Lord/Lord/spiders/em.py" />
-    <entry file="file://$PROJECT_DIR$/Lord/Lord/spiders/exception.py" />
-    <entry file="file://$PROJECT_DIR$/Lord/Lord/statscol/__init__.py" />
-    <entry file="file://$PROJECT_DIR$/Lord/Lord/statscol/graphite.py" />
-    <entry file="file://$PROJECT_DIR$/Lord/Lord/utils/color.py" />
-    <entry file="file://$PROJECT_DIR$/Lord/Lord/utils/termcolors.py" />
-    <entry file="file://$PROJECT_DIR$/Lord/Lord/__init__.py" />
-    <entry file="file://$PROJECT_DIR$/Lord/Lord/items.py" />
-    <entry file="file://$PROJECT_DIR$/Lord/Lord/middlewares.py" />
-    <entry file="file://$PROJECT_DIR$/Lord/Lord/pipelines.py" />
-    <entry file="file://$PROJECT_DIR$/Lord/Lord/proxy_ip.txt" />
     <entry file="file://$PROJECT_DIR$/Lord/Lord/settings.py" />
-    <entry file="file://$PROJECT_DIR$/Lord/logs/log.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Lord/utils/color.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Lord/utils/termcolors.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Lord/proxy_ip.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Lord/logger/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Lord/logger/log.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-760">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Lord/spiders/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Lord/logs/log.log" />
+    <entry file="file://$PROJECT_DIR$/Lord/utils/color.py" />
+    <entry file="file://$PROJECT_DIR$/Lord/utils/termcolors.py" />
+    <entry file="file://$PROJECT_DIR$/Lord/proxy_ip.txt" />
+    <entry file="file://$PROJECT_DIR$/Lord/logger/__init__.py" />
+    <entry file="file://$PROJECT_DIR$/Lord/logger/log.py" />
+    <entry file="file://$PROJECT_DIR$/Lord/spiders/__init__.py" />
     <entry file="file://$PROJECT_DIR$/Lord/spiders/em.py" />
-    <entry file="file://$PROJECT_DIR$/Lord/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Lord/statscol/graphite.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="169" column="33" lean-forward="false" selection-start-line="169" selection-start-column="6" selection-end-line="169" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Lord/__init__.py" />
+    <entry file="file://$PROJECT_DIR$/Lord/statscol/graphite.py" />
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36/Lib/site-packages/pymongo/collection.py" />
     <entry file="file://$PROJECT_DIR$/Lord/spiders/externalcommodityfutures.py" />
-    <entry file="file://$PROJECT_DIR$/Lord/middlewares.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1273">
-          <caret line="69" column="20" lean-forward="false" selection-start-line="69" selection-start-column="13" selection-end-line="69" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Lord/statscol/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Lord/spiders/exception.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Lord/pipelines.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="988">
-          <caret line="60" column="57" lean-forward="false" selection-start-line="60" selection-start-column="57" selection-end-line="60" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Lord/items.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="21" column="27" lean-forward="false" selection-start-line="21" selection-start-column="6" selection-end-line="21" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Lord/spiders/sina.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" column="31" lean-forward="false" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Lord/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="395">
-          <caret line="128" column="44" lean-forward="false" selection-start-line="128" selection-start-column="44" selection-end-line="128" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../GaiaSpider/Gaia/logger/log.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-114">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Lord/middlewares.py" />
+    <entry file="file://$PROJECT_DIR$/Lord/statscol/__init__.py" />
+    <entry file="file://$PROJECT_DIR$/Lord/spiders/exception.py" />
+    <entry file="file://$PROJECT_DIR$/Lord/pipelines.py" />
+    <entry file="file://$PROJECT_DIR$/Lord/items.py" />
+    <entry file="file://$PROJECT_DIR$/Lord/spiders/sina.py" />
+    <entry file="file://$PROJECT_DIR$/Lord/settings.py" />
+    <entry file="file://$PROJECT_DIR$/../GaiaSpider/Gaia/logger/log.py" />
     <entry file="file://$PROJECT_DIR$/../GaiaSpider/Gaia/statscol/graphite.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+        <state relative-caret-position="19">
+          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../GaiaSpider/scrapy.cfg" />
+    <entry file="file://$PROJECT_DIR$/scrapy.cfg">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gaia/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gaia/spiders/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gaia/spiders/exception.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gaia/utils/color.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-340">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gaia/utils/select_result.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gaia/statscol/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gaia/statscol/graphite.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#0#13#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../GaiaSpider/scrapy.cfg">
+    <entry file="file://$PROJECT_DIR$/Gaia/utils/termcolors.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="6" column="10" lean-forward="false" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="10" />
+        <state relative-caret-position="-1708">
+          <caret line="9" column="89" lean-forward="false" selection-start-line="9" selection-start-column="89" selection-end-line="9" selection-end-column="89" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gaia/contrib/downloadmiddleware/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gaia/logger/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gaia/logger/log.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gaia/logs/log.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gaia/scrapy_redis/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gaia/pipelines/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gaia/contrib/downloadmiddleware/rotate_useragent.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-118">
+          <caret line="16" column="102" lean-forward="true" selection-start-line="16" selection-start-column="102" selection-end-line="16" selection-end-column="102" />
+          <folding>
+            <element signature="e#39#52#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gaia/contrib/downloadmiddleware/google_cache.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="11" column="43" lean-forward="true" selection-start-line="11" selection-start-column="43" selection-end-line="11" selection-end-column="43" />
+          <folding>
+            <element signature="e#39#72#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gaia/proxy_ip.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python35/Lib/site-packages/scrapy/selector/lxmlsel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="703">
+          <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gaia/scrapy_redis/dupefilter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="26" column="52" lean-forward="false" selection-start-line="26" selection-start-column="43" selection-end-line="26" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gaia/scrapy_redis/queue.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gaia/scrapy_redis/scheduler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="513">
+          <caret line="30" column="30" lean-forward="true" selection-start-line="30" selection-start-column="30" selection-end-line="30" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gaia/middlewares.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="17" column="28" lean-forward="true" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gaia/pipelines/pipelines.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="665">
+          <caret line="35" column="49" lean-forward="false" selection-start-line="35" selection-start-column="39" selection-end-line="35" selection-end-column="49" />
+          <folding>
+            <element signature="e#193#207#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gaia/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1112">
+          <caret line="139" column="17" lean-forward="false" selection-start-line="139" selection-start-column="17" selection-end-line="139" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gaia/items.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="705">
+          <caret line="54" column="17" lean-forward="false" selection-start-line="54" selection-start-column="17" selection-end-line="54" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gaia/spiders/sina.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="97">
+          <caret line="52" column="46" lean-forward="false" selection-start-line="52" selection-start-column="42" selection-end-line="52" selection-end-column="46" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gaia/spiders/58SameCity.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="37" column="20" lean-forward="false" selection-start-line="37" selection-start-column="20" selection-end-line="37" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
