@@ -3,9 +3,10 @@
 
 import redis
 import time
+import re
 
-from scrapy.dupefilter import BaseDupeFilter
-from scrapy.utils.request import request_fingerprint
+from scrapy.dupefilters import BaseDupeFilter
+from . import connection
 
 class RFPDupeFilter(BaseDupeFilter):
     """Redis-based request duplication filter"""
@@ -24,12 +25,7 @@ class RFPDupeFilter(BaseDupeFilter):
 
     @classmethod
     def from_settings(cls, settings):
-        host = settings.get('REDIS_HOST', 'localhost')
-        port = settings.get('REDIS_PORT', 6379)
-        server = redis.Redis(host, port)
-        # create one-time key. needed to support to use this
-        # class as standalone dupefilter with scrapy's default scheduler
-        # if scrapy passes spider on open() method this wouldn't be needed
+        server = connection.from_settings_filter(settings)
         key = "dupefilter:%s" % int(time.time())
         return cls(server, key)
 
@@ -41,12 +37,15 @@ class RFPDupeFilter(BaseDupeFilter):
         """
             use sismember judge whether fp is duplicate.
         """
-        
-        fp = request_fingerprint(request)
-        if self.server.sismember(self.key,fp):
-            return True
-        self.server.sadd(self.key, fp)
-        return False
+        uid = re.findall('(\d+)/info', request.url)
+        if uid:
+            uid = int(uid[0])
+            isExist = self.server.getbit(self.key + str(uid / 4000000000), uid % 4000000000)
+            if isExist == 1:
+                return True
+            else:
+                self.server.setbit(self.key + str(uid / 4000000000), uid % 4000000000, 1)
+                return False
 
     def close(self, reason):
         """Delete data on close. Called by scrapy's scheduler"""

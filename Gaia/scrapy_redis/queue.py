@@ -2,6 +2,7 @@
 #-*-coding:utf-8-*-
 
 from scrapy.utils.reqser import request_to_dict, request_from_dict
+from scrapy.http import Request
 
 try:
     import cPickle as pickle
@@ -12,7 +13,7 @@ except ImportError:
 class Base(object):
     """Per-spider queue/stack base class"""
 
-    def __init__(self, server, spider, key):
+    def __init__(self, server, spider, key, queue_name):
         """Initialize per-spider redis queue.
 
         Parameters:
@@ -22,7 +23,7 @@ class Base(object):
         """
         self.server = server
         self.spider = spider
-        self.key = key % {'spider': spider.name}
+        self.key = key % {'spider': queue_name}
 
     def _encode_request(self, request):
         """Encode a request object"""
@@ -60,12 +61,16 @@ class SpiderQueue(Base):
         """Push a request"""
         self.server.lpush(self.key, self._encode_request(request))
 
-    def pop(self):
+    def pop(self, timeout=0):
         """Pop a request"""
-        data = self.server.rpop(self.key)
+        if timeout > 0:
+            data = self.server.brpop(self.key, timeout)
+            if isinstance(data, tuple):
+                data = data[1]
+        else:
+            data = self.server.rpop(self.key)
         if data:
             return self._decode_request(data)
-
 
 class SpiderPriorityQueue(Base):
     """Per-spider priority queue abstraction using redis' sorted set"""
@@ -80,7 +85,7 @@ class SpiderPriorityQueue(Base):
         pairs = {data:-request.priority}
         self.server.zadd(self.key, **pairs)
 
-    def pop(self):
+    def pop(self, timeout=0):
         """Pop a request"""
         # use atomic range/remove using multi/exec
         pipe = self.server.pipeline()
@@ -90,6 +95,25 @@ class SpiderPriorityQueue(Base):
         if results:
             return self._decode_request(results[0])
 
+class SpiderSimpleQueue(Base):
+    """ url + callback """
+
+    def __len__(self):
+        """Return the length of the queue"""
+        return self.server.llen(self.key)
+
+    def push(self, request):
+        """Push a request"""
+        self.server.lpush(self.key, request.url[16:])
+
+    def pop(self, timeout=0):
+        """Pop a request"""
+        if timeout > 0:
+            url = self.server.brpop(self.key, timeout=timeout)
+            if isinstance(url, tuple):
+                url = url[1]
+        else:
+            url = self.server.rpop(self.key)
 
 class SpiderStack(Base):
     """Per-spider stack"""
@@ -102,11 +126,16 @@ class SpiderStack(Base):
         """Push a request"""
         self.server.lpush(self.key, self._encode_request(request))
 
-    def pop(self):
+    def pop(self, timeout=0):
         """Pop a request"""
-        data = self.server.lpop(self.key)
+        if timeout > 0:
+            data = self.server.blpop(self.key, timeout)
+            if isinstance(data, tuple):
+                data = data[1]
+        else:
+            data = self.server.lpop(self.key)
+
         if data:
             return self._decode_request(data)
 
-
-__all__ = ['SpiderQueue', 'SpiderPriorityQueue', 'SpiderStack']
+__all__ = ['SpiderQueue', 'SpiderPriorityQueue', 'SpiderSimpleQueue', 'SpiderStack']

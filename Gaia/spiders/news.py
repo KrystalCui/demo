@@ -4,6 +4,7 @@ import random
 import uuid
 from urllib.parse import urlparse
 from scrapy.selector import HtmlXPathSelector
+from Gaia.scrapy_redis.spiders import RedisSpider
 
 import scrapy
 from scrapy import Spider
@@ -11,10 +12,11 @@ from scrapy import Spider
 from Gaia.items import *
 from Gaia.logger import crawler
 
-logger = logging.getLogger('Gaia')
+logger = logging.getLogger('News')
 
-class SinaSpider(scrapy.Spider):
-	name = "Gaia"
+class SinaSpider(RedisSpider):
+	name = "News"
+	redis_key='GaiaSpider_News:start_urls'
 	rotete_user_agent = True
 
 	#在关闭爬虫之前,保存资源
