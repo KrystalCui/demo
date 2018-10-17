@@ -6,31 +6,26 @@ from urllib.parse import urlparse
 
 import scrapy
 from scrapy import Spider
-from scrapy.http import Request
 from scrapy.selector import HtmlXPathSelector
-from Gaia.scrapy_redis.spiders import RedisSpider
 
 from Gaia.items import *
 from Gaia.logger import crawler
-from Gaia.areaID import areaID
 
 logger = logging.getLogger('58SameCity')
 
-class SameCity58Spider(RedisSpider):
+class SameCity58Spider(scrapy.Spider):
 	name = "58SameCity"
-	redis_key = "58SameCity:start_urls"
 	rotete_user_agent = True
-	start_urls = list(set(areaID))
+	start_urls = 'https://sh.58.com/zufang/0/j1/'
+
+	#在关闭爬虫之前,保存资源
+	def __init__(self):
+		allowed_domains = ["sh.58.com"]
 
 	def start_requests(self):
-		crawler.info("start_requests:%s", 11111)
-		for uid in self.start_urls:
-			url = "https://%s.58.com/zufang/0/j1/" % uid
-			crawler.info("url:%s", url)
-			yield Request(url=url, callback=self.parse)
+		yield scrapy.Request(url=self.start_urls, callback=self.parse)
 
 	def parse(self, response):
-		crawler.info("start_requests:%s", 22222)
 		crawler.info("response:%s", response)
 		item = CourseItem()
 		for box in response.xpath('//ul[@class="listUl"]/li'):

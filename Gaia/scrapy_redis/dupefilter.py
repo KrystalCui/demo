@@ -3,11 +3,9 @@
 
 import redis
 import time
-import re
 
-from scrapy.dupefilters import BaseDupeFilter
-from . import connection
-from Gaia.logger import crawler
+from scrapy.dupefilter import BaseDupeFilter
+from scrapy.utils.request import request_fingerprint
 
 class RFPDupeFilter(BaseDupeFilter):
     """Redis-based request duplication filter"""
@@ -26,9 +24,13 @@ class RFPDupeFilter(BaseDupeFilter):
 
     @classmethod
     def from_settings(cls, settings):
-        server = connection.from_settings_filter(settings)
+        host = settings.get('REDIS_HOST', 'localhost')
+        port = settings.get('REDIS_PORT', 6379)
+        server = redis.Redis(host, port)
+        # create one-time key. needed to support to use this
+        # class as standalone dupefilter with scrapy's default scheduler
+        # if scrapy passes spider on open() method this wouldn't be needed
         key = "dupefilter:%s" % int(time.time())
-        crawler.info ("from_settings key:%s" , key)
         return cls(server, key)
 
     @classmethod
@@ -39,16 +41,12 @@ class RFPDupeFilter(BaseDupeFilter):
         """
             use sismember judge whether fp is duplicate.
         """
-        uid = re.findall('(\d+)/info', request.url)
-        crawler.info ("from_settings uid:%s" , uid)
-        if uid:
-            uid = int(uid[0])
-            isExist = self.server.getbit(self.key + str(uid / 4000000000), uid % 4000000000)
-            if isExist == 1:
-                return True
-            else:
-                self.server.setbit(self.key + str(uid / 4000000000), uid % 4000000000, 1)
-                return False
+        
+        fp = request_fingerprint(request)
+        if self.server.sismember(self.key,fp):
+            return True
+        self.server.sadd(self.key, fp)
+        return False
 
     def close(self, reason):
         """Delete data on close. Called by scrapy's scheduler"""
