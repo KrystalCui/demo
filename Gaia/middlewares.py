@@ -7,8 +7,10 @@
 
 from random import choice
 from scrapy import signals
+import random
 from scrapy.exceptions import NotConfigured
 
+from Gaia.user_agents import agents
 
 class RotateUserAgentMiddleware(object):
     '''Rotate user-age for each request
@@ -70,6 +72,6 @@ class RotateUserAgentMiddleware(object):
         self.enabled = getattr(spider, 'rotate_user_agent', self.enabled)
 
     def process_request(self, request, spider):
-        if not self.enabled or not self.user_agents:
-            return
-        request.headers['user-agent'] = choice(self.user_agents)
+        agent = random.choice(agents)
+        request.headers["user-agent"] = agent
+        print(agent)
