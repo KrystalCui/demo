@@ -6,23 +6,28 @@ from urllib.parse import urlparse
 
 import scrapy
 from scrapy import Spider
+from scrapy.http import Request
 from scrapy.selector import HtmlXPathSelector
 from Gaia.scrapy_redis.spiders import RedisSpider
 
 from Gaia.items import *
 from Gaia.logger import crawler
+from Gaia.areaID import areaID
 
 logger = logging.getLogger('58SameCity')
 
 class SameCity58Spider(RedisSpider):
 	name = "58SameCity"
-	redis_key = "GaiaSpider_58SameCity:start_urls"
+	redis_key = "58SameCity:start_urls"
 	rotete_user_agent = True
-	start_urls = 'https://sh.58.com/zufang/0/j1/'
+	start_urls = list(set(areaID))
 
 	def start_requests(self):
 		crawler.info("start_requests:%s", 11111)
-		yield scrapy.Request(url=self.start_urls, callback=self.parse)
+		for uid in self.start_urls:
+			url = "https://%s.58.com/zufang/0/j1/" % uid
+			crawler.info("url:%s", url)
+			yield Request(url=url, callback=self.parse)
 
 	def parse(self, response):
 		crawler.info("start_requests:%s", 22222)

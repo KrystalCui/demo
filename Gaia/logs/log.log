@@ -1,153 +1,227 @@
-2018-10-17 18:35:31 - crawler - INFO - uri: mongodb://gaiaspider:gaiaspider@192.168.88.101:3307
-2018-10-17 18:35:31 - crawler - INFO - db: gaiaspider
-2018-10-17 18:35:32 - crawler - INFO - parse_item response:<200 https://sh.58.com/zufang/35807167450702x.shtml?adtype=3>
-2018-10-17 18:35:32 - crawler - INFO - parse_item response:<200 https://sh.58.com/zufang/35801139724088x.shtml?adtype=3>
-2018-10-17 18:35:32 - crawler - INFO - parse_item response:<200 https://sh.58.com/zufang/34901006095667x.shtml?adtype=3>
-2018-10-17 18:35:32 - crawler - INFO - parse_item response:<200 https://sh.58.com/zufang/35785786707527x.shtml?adtype=3>
-2018-10-17 18:35:32 - crawler - INFO - parse_item response:<200 https://sh.58.com/zufang/35789773339569x.shtml?adtype=3>
-2018-10-17 18:35:32 - crawler - INFO - parse_item response:<200 https://sh.58.com/zufang/35790809076039x.shtml>
-2018-10-17 18:35:32 - crawler - INFO - parse_item response:<200 https://sh.58.com/zufang/35800044615494x.shtml?adtype=3>
-2018-10-17 18:35:32 - crawler - INFO - parse_item response:<200 https://sh.58.com/zufang/26609748653262x.shtml?adtype=3>
-2018-10-17 18:35:32 - crawler - INFO - parse_item response:<200 https://sh.58.com/zufang/35779691517953x.shtml?adtype=3>
-2018-10-17 18:35:32 - crawler - INFO - parse_item response:<200 https://sh.58.com/zufang/35762401605963x.shtml?adtype=3>
-2018-10-17 18:35:32 - crawler - INFO - parse_item response:<200 https://sh.58.com/zufang/35781280521552x.shtml?adtype=3>
-2018-10-17 18:35:32 - crawler - INFO - parse_item response:<200 https://sh.58.com/zufang/34948105993664x.shtml?adtype=3>
-2018-10-17 18:35:32 - crawler - INFO - parse_item response:<200 https://sh.58.com/zufang/35786678419252x.shtml?adtype=3>
-2018-10-17 18:35:32 - crawler - INFO - parse_item response:<200 https://sh.58.com/zufang/35363331938734x.shtml?adtype=3>
-2018-10-17 18:35:32 - crawler - INFO - parse_item response:<200 https://sh.58.com/zufang/34552850366155x.shtml?adtype=3>
-2018-10-17 18:35:32 - crawler - INFO - parse_item response:<200 https://sh.58.com/zufang/35540771335374x.shtml?adtype=3>
-2018-10-17 18:35:32 - crawler - INFO - parse_item response:<200 https://sh.58.com/zufang/35709789590080x.shtml?adtype=3>
-2018-10-17 18:35:32 - crawler - INFO - parse_item response:<200 https://sh.58.com/zufang/35453463958972x.shtml?adtype=3>
-2018-10-17 18:35:32 - crawler - INFO - parse_item response:<200 https://sh.58.com/zufang/35718916263991x.shtml?adtype=3>
-2018-10-17 18:35:32 - crawler - INFO - parse_item response:<200 https://sh.58.com/zufang/34479846822212x.shtml?adtype=3>
-2018-10-17 21:31:19 - crawler - INFO - uri: mongodb://gaiaspider:gaiaspider@192.168.88.101:3307
-2018-10-17 21:31:19 - crawler - INFO - db: gaiaspider
-2018-10-17 21:31:21 - crawler - INFO - response:<200 https://sh.58.com/zufang/0/j1/>
-2018-10-17 21:31:21 - crawler - INFO - herf:https://sh.58.com/zufang/35775316464687x.shtml
-2018-10-17 21:31:22 - crawler - INFO - herf:https://sh.58.com/zufang/35775318981069x.shtml
-2018-10-17 21:31:22 - crawler - INFO - herf:https://sh.58.com/zufang/35778467697095x.shtml
-2018-10-17 21:31:22 - crawler - INFO - herf:https://short.58.com/zd_p/2d139f99-503a-4b2e-aa99-34140d42a892/?target=fe-16-xgk_hvimob_81020735664967q-feykn&end=end
-2018-10-17 21:31:22 - crawler - INFO - parse_item response:<200 https://sh.58.com/zufang/35775316464687x.shtml>
-2018-10-17 21:31:23 - crawler - INFO - herf:https://short.58.com/zd_p/d1b41f28-d703-48bf-809e-830dcd275a5f/?target=fe-16-xgk_hvimob_85113614899711q-feykn&end=end
-2018-10-17 21:31:23 - crawler - INFO - herf:https://short.58.com/zd_p/cab08935-932f-482f-8b78-92cd65495d9e/?target=fe-16-xgk_hvimob_87926288171492q-feykn&end=end
-2018-10-17 21:31:24 - crawler - INFO - herf:https://short.58.com/zd_p/ff1e0ff8-d758-4475-a4db-6ebc44e69051/?target=fe-16-xgk_hvimob_81640790514043q-feykn&end=end
-2018-10-17 21:31:24 - crawler - INFO - herf:https://short.58.com/zd_p/82bad14c-5e5c-4fdc-97b0-d92c6e336f7e/?target=fe-16-xgk_hvimob_81060613535758q-feykn&end=end
-2018-10-17 21:31:25 - crawler - INFO - herf:https://short.58.com/zd_p/be1cb6d7-8ed0-4d46-b240-3ebbd9a6757c/?target=fe-16-xgk_hvimob_84977809200948q-feykn&end=end
-2018-10-17 21:31:25 - crawler - INFO - herf:https://short.58.com/zd_p/8800bafd-c461-45b9-ad19-3f68eb82f29e/?target=fe-16-xgk_hvimob_81009568031092q-feykn&end=end
-2018-10-17 21:31:26 - crawler - INFO - herf:https://short.58.com/zd_p/a8ce387d-7b85-43c9-b66a-52f5693882b6/?target=fe-16-xgk_hvimob_85256741228995q-feykn&end=end
-2018-10-17 21:31:26 - crawler - INFO - herf:https://short.58.com/zd_p/c3141204-2790-42ea-bf75-e76ac6f8efd2/?target=fe-16-xgk_hvimob_81067364137113q-feykn&end=end
-2018-10-17 21:31:26 - crawler - INFO - herf:https://short.58.com/zd_p/4d5dbf1f-d573-4186-99a3-443a4852eaaa/?target=fe-16-xgk_hvimob_85502659633373q-feykn&end=end
-2018-10-17 21:31:28 - crawler - INFO - herf:https://short.58.com/zd_p/a0463c0e-7ce3-48d5-8a27-977b9daedc92/?target=fe-16-xgk_hvimob_81042062124464q-feykn&end=end
-2018-10-17 21:31:28 - crawler - INFO - herf:https://short.58.com/zd_p/e0ed6a27-94fb-4211-93ee-35ee81fe7de2/?target=fe-16-xgk_hvimob_81647782035466q-feykn&end=end
-2018-10-17 21:31:28 - crawler - INFO - parse_item response:<200 https://callback.58.com/firewall/verifycode?serialId=66a5388afac24763b8578b2dbfccfe31_53f93912eab54cc89ee597a478aca949&code=22&sign=9c2560fa7ead5456f76299b9b3389e3a&namespace=zufangphp&url=sh.58.com%2Fzufang%2F35778467697095x.shtml>
-2018-10-17 21:31:28 - crawler - INFO - herf:https://short.58.com/zd_p/d3e7bfd8-6ad3-4ca6-81b9-4f521810f5eb/?target=fe-16-xgk_hvimob_81069906572313q-feykn&end=end
-2018-10-17 21:31:29 - crawler - INFO - herf:https://short.58.com/zd_p/20d8a246-03b8-43dd-ba0a-90b8b30b986e/?target=fe-16-xgk_hvimob_39942056918393q-feykn&end=end
-2018-10-17 21:31:29 - crawler - INFO - herf:https://short.58.com/zd_p/2767d1c7-041f-4459-a85e-c6704ea1cbf9/?target=fe-16-xgk_hvimob_85247449421990q-feykn&end=end
-2018-10-17 21:31:30 - crawler - INFO - herf:https://short.58.com/zd_p/d257cd98-0132-4216-9be6-41418d58eed0/?target=fe-16-xgk_hvimob_81137893733213q-feykn&end=end
-2018-10-17 22:15:20 - crawler - INFO - uri: mongodb://gaiaspider:gaiaspider@192.168.88.101:3307
-2018-10-17 22:15:20 - crawler - INFO - db: gaiaspider
-2018-10-17 22:17:56 - crawler - INFO - uri: mongodb://gaiaspider:gaiaspider@192.168.88.101:3307
-2018-10-17 22:17:56 - crawler - INFO - db: gaiaspider
-2018-10-17 22:19:29 - crawler - INFO - uri: mongodb://gaiaspider:gaiaspider@192.168.88.101:3307
-2018-10-17 22:19:29 - crawler - INFO - db: gaiaspider
-2018-10-17 22:23:39 - crawler - INFO - uri: mongodb://gaiaspider:gaiaspider@192.168.88.101:3307
-2018-10-17 22:23:39 - crawler - INFO - db: gaiaspider
-2018-10-17 22:24:23 - crawler - INFO - uri: mongodb://gaiaspider:gaiaspider@192.168.88.101:3307
-2018-10-17 22:24:23 - crawler - INFO - db: gaiaspider
-2018-10-17 22:26:12 - crawler - INFO - uri: mongodb://gaiaspider:gaiaspider@192.168.88.101:3307
-2018-10-17 22:26:12 - crawler - INFO - db: gaiaspider
-2018-10-17 22:29:03 - crawler - INFO - uri: mongodb://gaiaspider:gaiaspider@192.168.88.101:3307
-2018-10-17 22:29:03 - crawler - INFO - db: gaiaspider
-2018-10-17 22:31:08 - crawler - INFO - uri: mongodb://gaiaspider:gaiaspider@192.168.88.101:3307
-2018-10-17 22:31:08 - crawler - INFO - db: gaiaspider
-2018-10-17 22:31:18 - crawler - INFO - uri: mongodb://gaiaspider:gaiaspider@192.168.88.101:3307
-2018-10-17 22:31:18 - crawler - INFO - db: gaiaspider
-2018-10-17 22:31:29 - crawler - INFO - uri: mongodb://gaiaspider:gaiaspider@192.168.88.101:3307
-2018-10-17 22:31:29 - crawler - INFO - db: gaiaspider
-2018-10-17 22:31:47 - crawler - INFO - uri: mongodb://gaiaspider:gaiaspider@192.168.88.101:3307
-2018-10-17 22:31:47 - crawler - INFO - db: gaiaspider
-2018-10-17 22:32:38 - crawler - INFO - uri: mongodb://gaiaspider:gaiaspider@192.168.88.101:3307
-2018-10-17 22:32:38 - crawler - INFO - db: gaiaspider
-2018-10-17 22:33:57 - crawler - INFO - uri: mongodb://gaiaspider:gaiaspider@192.168.88.101:3307
-2018-10-17 22:33:57 - crawler - INFO - db: gaiaspider
-2018-10-17 22:35:07 - crawler - INFO - uri: mongodb://gaiaspider:gaiaspider@192.168.88.101:3307
-2018-10-17 22:35:07 - crawler - INFO - db: gaiaspider
-2018-10-17 22:37:56 - crawler - INFO - uri: mongodb://gaiaspider:gaiaspider@192.168.88.101:3307
-2018-10-17 22:37:56 - crawler - INFO - db: gaiaspider
-2018-10-17 22:45:31 - crawler - INFO - uri: mongodb://gaiaspider:gaiaspider@192.168.88.101:3307
-2018-10-17 22:45:31 - crawler - INFO - db: gaiaspider
-2018-10-17 22:47:32 - crawler - INFO - uri: mongodb://gaiaspider:gaiaspider@192.168.88.101:3307
-2018-10-17 22:47:32 - crawler - INFO - db: gaiaspider
-2018-10-17 22:51:54 - crawler - INFO - uri: mongodb://gaiaspider:gaiaspider@192.168.88.101:3307
-2018-10-17 22:51:54 - crawler - INFO - db: gaiaspider
-2018-10-17 22:52:26 - crawler - INFO - uri: mongodb://gaiaspider:gaiaspider@192.168.88.101:3307
-2018-10-17 22:52:26 - crawler - INFO - db: gaiaspider
-2018-10-17 22:53:48 - crawler - INFO - start_requests:2222
-2018-10-17 22:53:49 - crawler - INFO - uri: mongodb://gaiaspider:gaiaspider@192.168.88.101:3307
-2018-10-17 22:53:49 - crawler - INFO - db: gaiaspider
-2018-10-17 22:54:37 - crawler - INFO - start_requests:2222
-2018-10-17 22:54:37 - crawler - INFO - start_requests:333333
-2018-10-17 22:54:38 - crawler - INFO - uri: mongodb://gaiaspider:gaiaspider@192.168.88.101:3307
-2018-10-17 22:54:38 - crawler - INFO - db: gaiaspider
-2018-10-17 22:57:12 - crawler - INFO - start_requests:11111
-2018-10-17 22:57:13 - crawler - INFO - uri: mongodb://gaiaspider:gaiaspider@192.168.88.101:3307
-2018-10-17 22:57:13 - crawler - INFO - db: gaiaspider
-2018-10-17 22:57:58 - crawler - INFO - start_requests:11111
-2018-10-17 22:57:58 - crawler - INFO - start_requests:22222
-2018-10-17 22:57:58 - crawler - INFO - start_requests:33333
-2018-10-17 22:57:58 - crawler - INFO - start_requests:444444
-2018-10-17 22:57:59 - crawler - INFO - uri: mongodb://gaiaspider:gaiaspider@192.168.88.101:3307
-2018-10-17 22:57:59 - crawler - INFO - db: gaiaspider
-2018-10-17 23:04:58 - crawler - INFO - from_settings from_settings
-2018-10-17 23:04:59 - crawler - INFO - uri: mongodb://gaiaspider:gaiaspider@192.168.88.101:3307
-2018-10-17 23:04:59 - crawler - INFO - db: gaiaspider
-2018-10-17 23:04:59 - crawler - INFO - MongoDBPipeline init
-2018-10-17 23:04:59 - crawler - INFO - from_settings from_settings
-2018-10-17 23:04:59 - crawler - INFO - from_settings_filter from_settings_filter
-2018-10-17 23:04:59 - crawler - INFO - RFPDupeFilter init
-2018-10-17 23:06:34 - crawler - INFO - from_settings from_settings
-2018-10-17 23:06:35 - crawler - INFO - uri: mongodb://gaiaspider:gaiaspider@192.168.88.101:3307
-2018-10-17 23:06:35 - crawler - INFO - db: gaiaspider
-2018-10-17 23:06:35 - crawler - INFO - MongoDBPipeline init
-2018-10-17 23:06:35 - crawler - INFO - SpiderQueue init
-2018-10-17 23:06:35 - crawler - INFO - SpiderPriorityQueue init
-2018-10-17 23:06:35 - crawler - INFO - SpiderSimpleQueue init
-2018-10-17 23:06:35 - crawler - INFO - SpiderStack init
-2018-10-17 23:06:35 - crawler - INFO - from_settings from_settings
-2018-10-17 23:06:35 - crawler - INFO - from_settings_filter from_settings_filter
-2018-10-17 23:06:35 - crawler - INFO - Base init
-2018-10-17 23:06:35 - crawler - INFO - RFPDupeFilter init
-2018-10-17 23:07:47 - crawler - INFO - from_settings from_settings
-2018-10-17 23:07:47 - crawler - INFO - uri: mongodb://gaiaspider:gaiaspider@192.168.88.101:3307
-2018-10-17 23:07:47 - crawler - INFO - db: gaiaspider
-2018-10-17 23:07:47 - crawler - INFO - MongoDBPipeline init
-2018-10-17 23:07:47 - crawler - INFO - SpiderQueue init
-2018-10-17 23:07:47 - crawler - INFO - SpiderPriorityQueue init
-2018-10-17 23:07:47 - crawler - INFO - SpiderSimpleQueue init
-2018-10-17 23:07:47 - crawler - INFO - SpiderStack init
-2018-10-17 23:07:47 - crawler - INFO - from_settings from_settings
-2018-10-17 23:07:47 - crawler - INFO - from_settings_filter from_settings_filter
-2018-10-17 23:07:47 - crawler - INFO - Base init
-2018-10-17 23:07:47 - crawler - INFO - RFPDupeFilter init
-2018-10-17 23:07:47 - crawler - INFO - RFPDupeFilter key:58SameCity:dupefilter
-2018-10-17 23:11:40 - crawler - INFO - from_settings from_settings
-2018-10-17 23:11:41 - crawler - INFO - uri: mongodb://gaiaspider:gaiaspider@192.168.88.101:3307
-2018-10-17 23:11:41 - crawler - INFO - db: gaiaspider
-2018-10-17 23:11:41 - crawler - INFO - MongoDBPipeline init
-2018-10-17 23:11:41 - crawler - INFO - SpiderQueue init
-2018-10-17 23:11:41 - crawler - INFO - SpiderPriorityQueue init
-2018-10-17 23:11:41 - crawler - INFO - SpiderSimpleQueue init
-2018-10-17 23:11:41 - crawler - INFO - SpiderStack init
-2018-10-17 23:11:41 - crawler - INFO - from_settings from_settings
-2018-10-17 23:11:41 - crawler - INFO - from_settings_filter from_settings_filter
-2018-10-17 23:11:41 - crawler - INFO - Base init
-2018-10-17 23:11:41 - crawler - INFO - RFPDupeFilter init
-2018-10-17 23:11:41 - crawler - INFO - RFPDupeFilter key:58SameCity:dupefilter
-2018-10-17 23:11:41 - crawler - INFO - start_requests:11111
-2018-10-17 23:11:41 - crawler - INFO - RFPDupeFilter request_seen
-2018-10-17 23:14:45 - crawler - INFO - uri: mongodb://gaiaspider:gaiaspider@192.168.88.101:3307
-2018-10-17 23:14:45 - crawler - INFO - db: gaiaspider
-2018-10-17 23:14:45 - crawler - INFO - start_requests:11111
-2018-10-17 23:16:40 - crawler - INFO - uri: mongodb://gaiaspider:gaiaspider@192.168.88.101:3307
-2018-10-17 23:16:40 - crawler - INFO - db: gaiaspider
-2018-10-17 23:16:40 - crawler - INFO - start_requests:11111
+2018-10-18 00:06:24 - crawler - INFO - uri: mongodb://root:root@47.100.3.16:27017
+2018-10-18 00:06:24 - crawler - INFO - db: lordspider
+2018-10-18 00:06:24 - crawler - INFO - start_requests:11111
+2018-10-18 00:06:24 - crawler - INFO - url:https://cq.58.com/zufang/0/j1/
+2018-10-18 00:06:24 - crawler - INFO - url:https://sh.58.com/zufang/0/j1/
+2018-10-18 00:06:24 - crawler - INFO - url:https://tj.58.com/zufang/0/j1/
+2018-10-18 00:06:24 - crawler - INFO - url:https://nj.58.com/zufang/0/j1/
+2018-10-18 00:06:24 - crawler - INFO - url:https://wh.58.com/zufang/0/j1/
+2018-10-18 00:06:24 - crawler - INFO - url:https://gz.58.com/zufang/0/j1/
+2018-10-18 00:06:24 - crawler - INFO - url:https://bj.58.com/zufang/0/j1/
+2018-10-18 00:06:24 - crawler - INFO - url:https://cd.58.com/zufang/0/j1/
+2018-10-18 00:06:24 - crawler - INFO - url:https://hz.58.com/zufang/0/j1/
+2018-10-18 00:06:24 - crawler - INFO - url:https://sz.58.com/zufang/0/j1/
+2018-10-18 00:07:15 - crawler - INFO - uri: mongodb://root:root@47.100.3.16:27017
+2018-10-18 00:07:15 - crawler - INFO - db: lordspider
+2018-10-18 00:07:15 - crawler - INFO - start_requests:11111
+2018-10-18 00:07:15 - crawler - INFO - url:https://sz.58.com/zufang/0/j1/
+2018-10-18 00:07:15 - crawler - INFO - url:https://tj.58.com/zufang/0/j1/
+2018-10-18 00:07:15 - crawler - INFO - url:https://hz.58.com/zufang/0/j1/
+2018-10-18 00:07:15 - crawler - INFO - url:https://bj.58.com/zufang/0/j1/
+2018-10-18 00:07:16 - crawler - INFO - url:https://nj.58.com/zufang/0/j1/
+2018-10-18 00:07:16 - crawler - INFO - url:https://gz.58.com/zufang/0/j1/
+2018-10-18 00:07:16 - crawler - INFO - url:https://sh.58.com/zufang/0/j1/
+2018-10-18 00:07:16 - crawler - INFO - url:https://cq.58.com/zufang/0/j1/
+2018-10-18 00:07:16 - crawler - INFO - url:https://cd.58.com/zufang/0/j1/
+2018-10-18 00:07:16 - crawler - INFO - url:https://wh.58.com/zufang/0/j1/
+2018-10-18 00:07:51 - crawler - INFO - uri: mongodb://root:root@47.100.3.16:27017
+2018-10-18 00:07:51 - crawler - INFO - db: lordspider
+2018-10-18 00:07:51 - crawler - INFO - start_requests:11111
+2018-10-18 00:07:51 - crawler - INFO - url:https://gz.58.com/zufang/0/j1/
+2018-10-18 00:07:51 - crawler - INFO - url:https://hz.58.com/zufang/0/j1/
+2018-10-18 00:07:51 - crawler - INFO - url:https://bj.58.com/zufang/0/j1/
+2018-10-18 00:07:51 - crawler - INFO - url:https://nj.58.com/zufang/0/j1/
+2018-10-18 00:07:51 - crawler - INFO - url:https://sh.58.com/zufang/0/j1/
+2018-10-18 00:07:51 - crawler - INFO - url:https://wh.58.com/zufang/0/j1/
+2018-10-18 00:07:51 - crawler - INFO - url:https://tj.58.com/zufang/0/j1/
+2018-10-18 00:07:51 - crawler - INFO - url:https://cq.58.com/zufang/0/j1/
+2018-10-18 00:07:51 - crawler - INFO - url:https://sz.58.com/zufang/0/j1/
+2018-10-18 00:07:51 - crawler - INFO - url:https://cd.58.com/zufang/0/j1/
+2018-10-18 00:09:10 - storage - INFO - from_settings url:None
+2018-10-18 00:09:10 - storage - INFO - from_settings host:47.100.3.16
+2018-10-18 00:09:10 - storage - INFO - from_settings port:6379
+2018-10-18 00:09:11 - crawler - INFO - uri: mongodb://root:root@47.100.3.16:27017
+2018-10-18 00:09:11 - crawler - INFO - db: lordspider
+2018-10-18 00:09:11 - storage - INFO - from_settings url:None
+2018-10-18 00:09:11 - storage - INFO - from_settings host:47.100.3.16
+2018-10-18 00:09:11 - storage - INFO - from_settings port:6379
+2018-10-18 00:09:11 - storage - INFO - from_settings_filter url:None
+2018-10-18 00:09:11 - storage - INFO - from_settings_filter host:47.100.3.16
+2018-10-18 00:09:11 - storage - INFO - from_settings_filter port:6379
+2018-10-18 00:09:11 - crawler - INFO - start_requests:11111
+2018-10-18 00:09:11 - crawler - INFO - url:https://sz.58.com/zufang/0/j1/
+2018-10-18 00:09:11 - crawler - INFO - url:https://tj.58.com/zufang/0/j1/
+2018-10-18 00:09:11 - crawler - INFO - url:https://bj.58.com/zufang/0/j1/
+2018-10-18 00:09:11 - crawler - INFO - url:https://hz.58.com/zufang/0/j1/
+2018-10-18 00:09:11 - crawler - INFO - url:https://gz.58.com/zufang/0/j1/
+2018-10-18 00:09:11 - crawler - INFO - url:https://nj.58.com/zufang/0/j1/
+2018-10-18 00:09:11 - crawler - INFO - url:https://wh.58.com/zufang/0/j1/
+2018-10-18 00:09:11 - crawler - INFO - url:https://cq.58.com/zufang/0/j1/
+2018-10-18 00:09:11 - crawler - INFO - url:https://cd.58.com/zufang/0/j1/
+2018-10-18 00:09:11 - crawler - INFO - url:https://sh.58.com/zufang/0/j1/
+2018-10-18 00:10:39 - storage - INFO - from_settings url:None
+2018-10-18 00:10:39 - storage - INFO - from_settings host:47.100.3.16
+2018-10-18 00:10:39 - storage - INFO - from_settings port:6379
+2018-10-18 00:10:40 - crawler - INFO - uri: mongodb://root:root@47.100.3.16:27017
+2018-10-18 00:10:40 - crawler - INFO - db: lordspider
+2018-10-18 00:10:40 - storage - INFO - from_settings url:None
+2018-10-18 00:10:40 - storage - INFO - from_settings host:47.100.3.16
+2018-10-18 00:10:40 - storage - INFO - from_settings port:6379
+2018-10-18 00:10:40 - storage - INFO - from_settings_filter url:None
+2018-10-18 00:10:40 - storage - INFO - from_settings_filter host:47.100.3.16
+2018-10-18 00:10:40 - storage - INFO - from_settings_filter port:6379
+2018-10-18 00:10:40 - crawler - INFO - start_requests:11111
+2018-10-18 00:10:40 - crawler - INFO - url:https://hz.58.com/zufang/0/j1/
+2018-10-18 00:10:40 - crawler - INFO - url:https://bj.58.com/zufang/0/j1/
+2018-10-18 00:10:40 - crawler - INFO - url:https://wh.58.com/zufang/0/j1/
+2018-10-18 00:10:40 - crawler - INFO - url:https://sh.58.com/zufang/0/j1/
+2018-10-18 00:10:40 - crawler - INFO - url:https://nj.58.com/zufang/0/j1/
+2018-10-18 00:10:40 - crawler - INFO - url:https://sz.58.com/zufang/0/j1/
+2018-10-18 00:10:40 - crawler - INFO - url:https://cd.58.com/zufang/0/j1/
+2018-10-18 00:10:40 - crawler - INFO - url:https://gz.58.com/zufang/0/j1/
+2018-10-18 00:10:40 - crawler - INFO - url:https://cq.58.com/zufang/0/j1/
+2018-10-18 00:10:40 - crawler - INFO - url:https://tj.58.com/zufang/0/j1/
+2018-10-18 00:11:08 - crawler - INFO - from_settings url:None
+2018-10-18 00:11:08 - crawler - INFO - from_settings host:47.100.3.16
+2018-10-18 00:11:08 - crawler - INFO - from_settings port:6379
+2018-10-18 00:11:09 - crawler - INFO - uri: mongodb://root:root@47.100.3.16:27017
+2018-10-18 00:11:09 - crawler - INFO - db: lordspider
+2018-10-18 00:11:09 - crawler - INFO - from_settings url:None
+2018-10-18 00:11:09 - crawler - INFO - from_settings host:47.100.3.16
+2018-10-18 00:11:09 - crawler - INFO - from_settings port:6379
+2018-10-18 00:11:09 - crawler - INFO - from_settings_filter url:None
+2018-10-18 00:11:09 - crawler - INFO - from_settings_filter host:47.100.3.16
+2018-10-18 00:11:09 - crawler - INFO - from_settings_filter port:6379
+2018-10-18 00:11:09 - crawler - INFO - start_requests:11111
+2018-10-18 00:11:09 - crawler - INFO - url:https://gz.58.com/zufang/0/j1/
+2018-10-18 00:11:09 - crawler - INFO - url:https://sh.58.com/zufang/0/j1/
+2018-10-18 00:11:09 - crawler - INFO - url:https://nj.58.com/zufang/0/j1/
+2018-10-18 00:11:09 - crawler - INFO - url:https://cd.58.com/zufang/0/j1/
+2018-10-18 00:11:09 - crawler - INFO - url:https://hz.58.com/zufang/0/j1/
+2018-10-18 00:11:09 - crawler - INFO - url:https://wh.58.com/zufang/0/j1/
+2018-10-18 00:11:09 - crawler - INFO - url:https://tj.58.com/zufang/0/j1/
+2018-10-18 00:11:09 - crawler - INFO - url:https://cq.58.com/zufang/0/j1/
+2018-10-18 00:11:09 - crawler - INFO - url:https://sz.58.com/zufang/0/j1/
+2018-10-18 00:11:09 - crawler - INFO - url:https://bj.58.com/zufang/0/j1/
+2018-10-18 00:12:14 - crawler - INFO - from_settings url:None
+2018-10-18 00:12:14 - crawler - INFO - from_settings host:47.100.3.16
+2018-10-18 00:12:14 - crawler - INFO - from_settings port:6379
+2018-10-18 00:12:15 - crawler - INFO - uri: mongodb://root:root@47.100.3.16:27017
+2018-10-18 00:12:15 - crawler - INFO - db: lordspider
+2018-10-18 00:12:15 - crawler - INFO - from_settings url:None
+2018-10-18 00:12:15 - crawler - INFO - from_settings host:47.100.3.16
+2018-10-18 00:12:15 - crawler - INFO - from_settings port:6379
+2018-10-18 00:12:15 - crawler - INFO - from_settings_filter url:None
+2018-10-18 00:12:15 - crawler - INFO - from_settings_filter host:47.100.3.16
+2018-10-18 00:12:15 - crawler - INFO - from_settings_filter port:6379
+2018-10-18 00:12:15 - crawler - INFO - start_requests:11111
+2018-10-18 00:12:15 - crawler - INFO - url:https://tj.58.com/zufang/0/j1/
+2018-10-18 00:12:15 - crawler - INFO - from_settings uid:[]
+2018-10-18 00:12:15 - crawler - INFO - url:https://cd.58.com/zufang/0/j1/
+2018-10-18 00:12:15 - crawler - INFO - from_settings uid:[]
+2018-10-18 00:12:15 - crawler - INFO - url:https://sh.58.com/zufang/0/j1/
+2018-10-18 00:12:15 - crawler - INFO - from_settings uid:[]
+2018-10-18 00:12:15 - crawler - INFO - url:https://hz.58.com/zufang/0/j1/
+2018-10-18 00:12:15 - crawler - INFO - from_settings uid:[]
+2018-10-18 00:12:15 - crawler - INFO - url:https://gz.58.com/zufang/0/j1/
+2018-10-18 00:12:15 - crawler - INFO - from_settings uid:[]
+2018-10-18 00:12:15 - crawler - INFO - url:https://sz.58.com/zufang/0/j1/
+2018-10-18 00:12:15 - crawler - INFO - from_settings uid:[]
+2018-10-18 00:12:15 - crawler - INFO - url:https://bj.58.com/zufang/0/j1/
+2018-10-18 00:12:15 - crawler - INFO - from_settings uid:[]
+2018-10-18 00:12:15 - crawler - INFO - url:https://nj.58.com/zufang/0/j1/
+2018-10-18 00:12:15 - crawler - INFO - from_settings uid:[]
+2018-10-18 00:12:16 - crawler - INFO - url:https://wh.58.com/zufang/0/j1/
+2018-10-18 00:12:16 - crawler - INFO - from_settings uid:[]
+2018-10-18 00:12:16 - crawler - INFO - url:https://cq.58.com/zufang/0/j1/
+2018-10-18 00:12:16 - crawler - INFO - from_settings uid:[]
+2018-10-18 06:14:21 - crawler - INFO - from_settings url:None
+2018-10-18 06:14:21 - crawler - INFO - from_settings host:47.100.3.16
+2018-10-18 06:14:21 - crawler - INFO - from_settings port:6379
+2018-10-18 06:14:22 - crawler - INFO - uri: mongodb://root:root@47.100.3.16:27017
+2018-10-18 06:14:22 - crawler - INFO - db: lordspider
+2018-10-18 06:14:22 - crawler - INFO - from_settings url:None
+2018-10-18 06:14:22 - crawler - INFO - from_settings host:47.100.3.16
+2018-10-18 06:14:22 - crawler - INFO - from_settings port:6379
+2018-10-18 06:14:22 - crawler - INFO - from_settings_filter url:None
+2018-10-18 06:14:22 - crawler - INFO - from_settings_filter host:47.100.3.16
+2018-10-18 06:14:22 - crawler - INFO - from_settings_filter port:6379
+2018-10-18 06:14:22 - crawler - INFO - start_requests:11111
+2018-10-18 06:14:22 - crawler - INFO - url:https://sh.58.com/zufang/0/j1/
+2018-10-18 06:14:22 - crawler - INFO - from_settings uid:[]
+2018-10-18 06:14:22 - crawler - INFO - url:https://sz.58.com/zufang/0/j1/
+2018-10-18 06:14:22 - crawler - INFO - from_settings uid:[]
+2018-10-18 06:14:22 - crawler - INFO - url:https://tj.58.com/zufang/0/j1/
+2018-10-18 06:14:22 - crawler - INFO - from_settings uid:[]
+2018-10-18 06:14:22 - crawler - INFO - url:https://cd.58.com/zufang/0/j1/
+2018-10-18 06:14:22 - crawler - INFO - from_settings uid:[]
+2018-10-18 06:14:22 - crawler - INFO - url:https://gz.58.com/zufang/0/j1/
+2018-10-18 06:14:22 - crawler - INFO - from_settings uid:[]
+2018-10-18 06:14:22 - crawler - INFO - url:https://wh.58.com/zufang/0/j1/
+2018-10-18 06:14:22 - crawler - INFO - from_settings uid:[]
+2018-10-18 06:14:22 - crawler - INFO - url:https://hz.58.com/zufang/0/j1/
+2018-10-18 06:14:22 - crawler - INFO - from_settings uid:[]
+2018-10-18 06:14:22 - crawler - INFO - url:https://cq.58.com/zufang/0/j1/
+2018-10-18 06:14:22 - crawler - INFO - from_settings uid:[]
+2018-10-18 06:14:22 - crawler - INFO - url:https://bj.58.com/zufang/0/j1/
+2018-10-18 06:14:22 - crawler - INFO - from_settings uid:[]
+2018-10-18 06:14:22 - crawler - INFO - url:https://nj.58.com/zufang/0/j1/
+2018-10-18 06:14:22 - crawler - INFO - from_settings uid:[]
+2018-10-18 06:15:02 - crawler - INFO - uri: mongodb://root:root@47.100.3.16:27017
+2018-10-18 06:15:02 - crawler - INFO - db: lordspider
+2018-10-18 06:15:02 - crawler - INFO - from_settings url:None
+2018-10-18 06:15:02 - crawler - INFO - from_settings host:47.100.3.16
+2018-10-18 06:15:02 - crawler - INFO - from_settings port:6379
+2018-10-18 06:15:02 - crawler - INFO - from_settings_filter url:None
+2018-10-18 06:15:02 - crawler - INFO - from_settings_filter host:47.100.3.16
+2018-10-18 06:15:02 - crawler - INFO - from_settings_filter port:6379
+2018-10-18 06:15:02 - crawler - INFO - start_requests:11111
+2018-10-18 06:15:02 - crawler - INFO - url:https://cd.58.com/zufang/0/j1/
+2018-10-18 06:15:02 - crawler - INFO - from_settings uid:[]
+2018-10-18 06:15:02 - crawler - INFO - url:https://hz.58.com/zufang/0/j1/
+2018-10-18 06:15:02 - crawler - INFO - from_settings uid:[]
+2018-10-18 06:15:02 - crawler - INFO - url:https://wh.58.com/zufang/0/j1/
+2018-10-18 06:15:02 - crawler - INFO - from_settings uid:[]
+2018-10-18 06:15:02 - crawler - INFO - url:https://gz.58.com/zufang/0/j1/
+2018-10-18 06:15:02 - crawler - INFO - from_settings uid:[]
+2018-10-18 06:15:02 - crawler - INFO - url:https://nj.58.com/zufang/0/j1/
+2018-10-18 06:15:02 - crawler - INFO - from_settings uid:[]
+2018-10-18 06:15:02 - crawler - INFO - url:https://sz.58.com/zufang/0/j1/
+2018-10-18 06:15:02 - crawler - INFO - from_settings uid:[]
+2018-10-18 06:15:02 - crawler - INFO - url:https://bj.58.com/zufang/0/j1/
+2018-10-18 06:15:02 - crawler - INFO - from_settings uid:[]
+2018-10-18 06:15:02 - crawler - INFO - url:https://cq.58.com/zufang/0/j1/
+2018-10-18 06:15:02 - crawler - INFO - from_settings uid:[]
+2018-10-18 06:15:02 - crawler - INFO - url:https://sh.58.com/zufang/0/j1/
+2018-10-18 06:15:02 - crawler - INFO - from_settings uid:[]
+2018-10-18 06:15:02 - crawler - INFO - url:https://tj.58.com/zufang/0/j1/
+2018-10-18 06:15:02 - crawler - INFO - from_settings uid:[]
+2018-10-18 06:15:20 - crawler - INFO - uri: mongodb://root:root@47.100.3.16:27017
+2018-10-18 06:15:20 - crawler - INFO - db: lordspider
+2018-10-18 06:15:20 - crawler - INFO - from_settings url:None
+2018-10-18 06:15:20 - crawler - INFO - from_settings host:47.100.3.16
+2018-10-18 06:15:20 - crawler - INFO - from_settings port:6379
+2018-10-18 06:15:20 - crawler - INFO - from_settings_filter url:None
+2018-10-18 06:15:20 - crawler - INFO - from_settings_filter host:47.100.3.16
+2018-10-18 06:15:20 - crawler - INFO - from_settings_filter port:6379
+2018-10-18 06:15:20 - crawler - INFO - start_requests:222222
+2018-10-18 06:15:20 - crawler - INFO - url:https://gz.58.com/zufang/0/j1/
+2018-10-18 06:15:20 - crawler - INFO - from_settings uid:[]
+2018-10-18 06:15:20 - crawler - INFO - url:https://wh.58.com/zufang/0/j1/
+2018-10-18 06:15:20 - crawler - INFO - from_settings uid:[]
+2018-10-18 06:15:20 - crawler - INFO - url:https://cq.58.com/zufang/0/j1/
+2018-10-18 06:15:20 - crawler - INFO - from_settings uid:[]
+2018-10-18 06:15:20 - crawler - INFO - url:https://cd.58.com/zufang/0/j1/
+2018-10-18 06:15:20 - crawler - INFO - from_settings uid:[]
+2018-10-18 06:15:20 - crawler - INFO - url:https://sh.58.com/zufang/0/j1/
+2018-10-18 06:15:20 - crawler - INFO - from_settings uid:[]
+2018-10-18 06:15:20 - crawler - INFO - url:https://sz.58.com/zufang/0/j1/
+2018-10-18 06:15:20 - crawler - INFO - from_settings uid:[]
+2018-10-18 06:15:20 - crawler - INFO - url:https://hz.58.com/zufang/0/j1/
+2018-10-18 06:15:20 - crawler - INFO - from_settings uid:[]
+2018-10-18 06:15:20 - crawler - INFO - url:https://bj.58.com/zufang/0/j1/
+2018-10-18 06:15:20 - crawler - INFO - from_settings uid:[]
+2018-10-18 06:15:20 - crawler - INFO - url:https://nj.58.com/zufang/0/j1/
+2018-10-18 06:15:20 - crawler - INFO - from_settings uid:[]
+2018-10-18 06:15:20 - crawler - INFO - url:https://tj.58.com/zufang/0/j1/
+2018-10-18 06:15:20 - crawler - INFO - from_settings uid:[]

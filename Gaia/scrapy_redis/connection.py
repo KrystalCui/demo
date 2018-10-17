@@ -1,4 +1,5 @@
 import redis
+from Gaia.logger import crawler
 
 # Default values.
 REDIS_URL = None
@@ -15,6 +16,10 @@ def from_settings(settings):
     host = settings.get('REDIS_HOST', REDIS_HOST)
     port = settings.get('REDIS_PORT', REDIS_PORT)
 
+    crawler.info ("from_settings url:%s" , url)
+    crawler.info("from_settings host:%s", host)
+    crawler.info("from_settings port:%s", port)
+
     # REDIS_URL takes precedence over host/port specification.
     if url:
         return redis.from_url(url)
@@ -28,6 +33,9 @@ def from_settings_filter(settings):
     port = settings.get('FILTER_PORT', FILTER_PORT)
     db = settings.get('FILTER_DB', FILTER_DB)
 
+    crawler.info ("from_settings_filter url:%s" , url)
+    crawler.info("from_settings_filter host:%s", host)
+    crawler.info("from_settings_filter port:%s", port)
     if url:
         return redis.from_url(url)
     else:

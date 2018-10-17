@@ -53,6 +53,8 @@ class Scheduler(object):
         idle_before_close = settings.get('SCHEDULER_IDLE_BEFORE_CLOSE', IDLE_BEFORE_CLOSE)
         server = connection.from_settings(settings)
         server_filter = connection.from_settings_filter(settings)
+        print('queue_name:%s', queue_name)
+        print('queue_key:%s', queue_key)
         return cls(server, server_filter, persist, queue_key, queue_cls, dupefilter_key, idle_before_close, queue_name)
 
     @classmethod

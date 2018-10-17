@@ -49,11 +49,11 @@ ITEM_PIPELINES = {
     'scrapy_redis.pipelines.RedisPipeline': 300
 }
 
-MONGODB_SERVER = "192.168.88.101"
-MONGODB_PORT = 3307
-MONGODB_DB = "gaiaspider"
-MONGODB_USER = "gaiaspider"
-MONGODB_PASSWORD = "gaiaspider"
+MONGODB_SERVER = "47.100.3.16"
+MONGODB_PORT = 27017
+MONGODB_DB = "lordspider"
+MONGODB_USER = "root"
+MONGODB_PASSWORD = "root"
 
 # If proxy mode is 2 uncomment this sentence :
 #CUSTOM_PROXY = "http://host1:port"

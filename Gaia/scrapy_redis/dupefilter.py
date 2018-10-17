@@ -7,6 +7,7 @@ import re
 
 from scrapy.dupefilters import BaseDupeFilter
 from . import connection
+from Gaia.logger import crawler
 
 class RFPDupeFilter(BaseDupeFilter):
     """Redis-based request duplication filter"""
@@ -27,6 +28,7 @@ class RFPDupeFilter(BaseDupeFilter):
     def from_settings(cls, settings):
         server = connection.from_settings_filter(settings)
         key = "dupefilter:%s" % int(time.time())
+        crawler.info ("from_settings key:%s" , key)
         return cls(server, key)
 
     @classmethod
@@ -38,6 +40,7 @@ class RFPDupeFilter(BaseDupeFilter):
             use sismember judge whether fp is duplicate.
         """
         uid = re.findall('(\d+)/info', request.url)
+        crawler.info ("from_settings uid:%s" , uid)
         if uid:
             uid = int(uid[0])
             isExist = self.server.getbit(self.key + str(uid / 4000000000), uid % 4000000000)
