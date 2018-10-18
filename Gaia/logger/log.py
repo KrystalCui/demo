@@ -41,11 +41,11 @@ log_config = {
         },
         'parser':{
             'handlers':['file'],
-            'level':'INFO',
+            'level':'DEBUG',
         },
         'other':{
             'handlers':['console', 'file'],
-            'level':'INFO',
+            'level':'DEBUG',
         },
         'storage':{
             'handlers':['file'],

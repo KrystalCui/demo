@@ -14,23 +14,11 @@ BOT_NAME = 'Gaia'
 SPIDER_MODULES = ['Gaia.spiders']
 NEWSPIDER_MODULE = 'Gaia.spiders'
 
-
-# Crawl responsibly by identifying yourself (and your website) on the user-agent
-USER_AGENT_CHOICES = [
-    'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)',
-    'Mozilla/5.0 (compatible; Bingbot/2.0; +http://www.bing.com/bingbot.htm)',
-    'Mozilla/5.0 (compatible; Yahoo! Slurp; http://help.yahoo.com/help/us/ysearch/slurp)',
-    'DuckDuckBot/1.0; (+http://duckduckgo.com/duckduckbot.html)',
-    'Mozilla/5.0 (compatible; Baiduspider/2.0; +http://www.baidu.com/search/spider.html)',
-    'Mozilla/5.0 (compatible; YandexBot/3.0; +http://yandex.com/bots)',
-    'ia_archiver (+http://www.alexa.com/site/help/webmasters; crawler@alexa.com)',
-]
-
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = False
+ROBOTSTXT_OBEY = False #不遵循 robots.txt协议
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
-CONCURRENT_REQUESTS = 32
+CONCURRENT_REQUESTS = 16
 
 # Configure a delay for requests for the same website (default: 0)
 # See http://scrapy.readthedocs.org/en/latest/topics/settings.html#download-delay
@@ -76,6 +64,11 @@ ITEM_PIPELINES = {
     'Gaia.pipelines.pipelines.MongoDBPipeline': 300,
     'scrapy_redis.pipelines.RedisPipeline': 300
 }
+
+DOWNLOADER_MIDDLEWARES = {
+    'Gaia.middlewares.ProcessHeaderMidware.ProcessHeaderMidware': 543,
+}
+
 MONGODB_SERVER = "192.168.88.101"
 MONGODB_PORT = 3307
 MONGODB_DB = "gaiaspider"
@@ -130,9 +123,10 @@ MONGODB_PASSWORD = "gaiaspider"
 #CUSTOM_PROXY = "http://host1:port"
 # Enables scheduling storing requests queue in redis.
 SCHEDULER = "scrapy_redis.scheduler.Scheduler"
-
+SCHEDULER_PERSIST = True    #不清除Redis队列、这样可以暂停/恢复 爬取
 # # Ensure all spiders share same duplicates filter through redis.
 DUPEFILTER_CLASS = "scrapy_redis.dupefilter.RFPDupeFilter"
+SCHEDULER_QUEUE_CLASS = 'scrapy_redis.queue.SpiderPriorityQueue'
 
 # DEPTH_LIMIT = 1
 

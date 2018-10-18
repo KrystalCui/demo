@@ -1,3 +1,0 @@
-2018-10-18 06:45:44 - crawler - INFO - uri: mongodb://gaiaspider:gaiaspider@192.168.88.101:3307
-2018-10-18 06:45:44 - crawler - INFO - db: gaiaspider
-2018-10-18 06:45:44 - crawler - INFO - response:<200 https://callback.58.com/firewall/verifycode?serialId=b702bd85e712e642e297218c5e7d7c56_685d98b913634e4093b730d3c28576e8&code=22&sign=e325c2be4ae6f60a7e07e775ba3a8405&namespace=zufanglistphp&url=sh.58.com%2Fzufang%2F0%2Fj1%2F>

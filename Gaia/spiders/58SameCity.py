@@ -10,24 +10,22 @@ from scrapy.selector import HtmlXPathSelector
 
 from Gaia.items import *
 from Gaia.logger import crawler
+from Gaia.areaID import areaID
 
 logger = logging.getLogger('58SameCity')
 
 class SameCity58Spider(scrapy.Spider):
 	name = "58SameCity"
-	rotete_user_agent = True
-	start_urls = 'https://sh.58.com/zufang/0/j1/'
-
-	#在关闭爬虫之前,保存资源
-	def __init__(self):
-		allowed_domains = ["sh.58.com"]
+	start_urls = list(set(areaID))
 
 	def start_requests(self):
-		yield scrapy.Request(url=self.start_urls, callback=self.parse)
+		for area in self.start_urls:
+			time.sleep(np.random.rand() * 5)
+			yield Request(url="https://%s.58.com/zufang/0/j1/" % area, callback=self.parse)
 
 	def parse(self, response):
 		crawler.info("response:%s", response)
-		item = CourseItem()
+
 		for box in response.xpath('//ul[@class="listUl"]/li'):
 			href = box.xpath('.//div[@class="des"]/h2/a[@class="strongbox"]/@href').extract()
 			href = 'https:' + href[0];

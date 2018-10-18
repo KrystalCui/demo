@@ -8,6 +8,7 @@
 from random import choice
 from scrapy import signals
 import random
+from Gaia.logger import other
 from scrapy.exceptions import NotConfigured
 
 from Gaia.user_agents import agents
@@ -73,5 +74,5 @@ class RotateUserAgentMiddleware(object):
 
     def process_request(self, request, spider):
         agent = random.choice(agents)
+        other.info("agent:%s", agent)
         request.headers["user-agent"] = agent
-        print(agent)
