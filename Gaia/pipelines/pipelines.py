@@ -36,12 +36,14 @@ class MongoDBPipeline(object):
         self.db = connection[settings['MONGODB_DB']]
 
     def process_item(self, item, spider):
+        crawler.info('process_item: start')
         valid = True
         for data in item:
             if not data:
                 valid = False
                 raise DropItem("Missing{0}!".format(data))
         if valid:
+            crawler.info('process_item: start11111')
             try:
                 'This returns the number of values added, zero id alread exists.'
                 if type(item) == ParameterItem:
@@ -59,9 +61,11 @@ class MongoDBPipeline(object):
                         self.db['futures_news'].insert(dict(item))
                         crawler.info('add futures_news: %s', dict(item))
                 elif type(item) == InvestmentAdviserItem:
+                    crawler.info('process_item: start22222')
                     title = item['title']
                     key = "investment_advisers_filter_{}".format(title)
                     if self.server.get(key) is None:
+                        crawler.info('process_item: start33333')
                         self.server.set(key, title)
                         self.db['investment_advisers'].insert(dict(item))
                         crawler.info('add investment_advisers: %s', dict(item))

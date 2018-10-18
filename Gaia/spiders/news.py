@@ -11,10 +11,10 @@ from scrapy import Spider
 from Gaia.items import *
 from Gaia.logger import crawler
 
-logger = logging.getLogger('Gaia')
+logger = logging.getLogger('News')
 
 class SinaSpider(scrapy.Spider):
-	name = "Gaia"
+	name = "News"
 	rotete_user_agent = True
 
 	#在关闭爬虫之前,保存资源

@@ -16,12 +16,20 @@ logger = logging.getLogger('58SameCity')
 
 class SameCity58Spider(scrapy.Spider):
 	name = "58SameCity"
-	start_urls = list(set(areaID))
+	rotete_user_agent = True
+
+	#在关闭爬虫之前,保存资源
+	def __init__(self):
+		self.start_urls = list(set(areaID))
+		crawler.info("start_urls:%s", self.start_urls)
 
 	def start_requests(self):
 		for area in self.start_urls:
+			crawler.info("start_requests area:%s", area)
+			href = "https://%s.58.com/zufang/0/j1/" % area;
+			crawler.info("start_requests herf:%s", href)
 			time.sleep(np.random.rand() * 5)
-			yield Request(url="https://%s.58.com/zufang/0/j1/" % area, callback=self.parse)
+			yield Request(url=href, callback=self.parse)
 
 	def parse(self, response):
 		crawler.info("response:%s", response)

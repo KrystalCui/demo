@@ -61,7 +61,7 @@ DOWNLOADER_MIDDLEWARES = {
 # Configure item pipelines
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-    'Gaia.pipelines.pipelines.MongoDBPipeline': 300,
+    'Gaia.pipelines.pipelines.MongoDBPipeline': 200,
     'scrapy_redis.pipelines.RedisPipeline': 300
 }
 
