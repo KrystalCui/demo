@@ -12,10 +12,10 @@ from Gaia.items import *
 from Gaia.logger import crawler
 from Gaia.areaID import areaID
 
-logger = logging.getLogger('58SameCity')
+logger = logging.getLogger('SameCity58Spider')
 
 class SameCity58Spider(scrapy.Spider):
-	name = "58SameCity"
+	name = "SameCity58Spider"
 	rotete_user_agent = True
 
 	#在关闭爬虫之前,保存资源

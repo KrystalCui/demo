@@ -69,7 +69,7 @@ DOWNLOADER_MIDDLEWARES = {
     'Gaia.middlewares.ProcessHeaderMidware.ProcessHeaderMidware': 543,
 }
 
-MONGODB_SERVER = "192.168.88.101"
+MONGODB_SERVER = "ss.gaiafintech.com"
 MONGODB_PORT = 3307
 MONGODB_DB = "gaiaspider"
 MONGODB_USER = "gaiaspider"
@@ -130,9 +130,9 @@ SCHEDULER_QUEUE_CLASS = 'scrapy_redis.queue.SpiderPriorityQueue'
 
 # DEPTH_LIMIT = 1
 
-REDIS_HOST = '47.100.3.16'
-REDIS_PORT = 6379
-REDIS_DB = 0
+REDIS_HOST = '192.168.88.103'
+REDIS_PORT = 3308
+REDIS_DB = 3
 REDIS_PASSWORD = ''
 
 

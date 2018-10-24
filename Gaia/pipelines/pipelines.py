@@ -25,15 +25,16 @@ class MongoDBPipeline(object):
             ,password = quote_plus(settings['REDIS_PASSWORD']))
         self.server = redis.Redis(connection_pool=pool)
 
-        uri = "mongodb://{}:{}@{}:{}".format (quote_plus(settings['MONGODB_USER']),
+        uri = "mongodb://{}:{}@{}:{}/{}".format (quote_plus(settings['MONGODB_USER']),
                                               quote_plus(settings['MONGODB_PASSWORD']),
                                                  settings['MONGODB_SERVER'],
-                                                 settings['MONGODB_PORT'])
+                                                 settings['MONGODB_PORT'], settings['MONGODB_DB'])
 
         crawler.info("uri: %s", uri)
         connection=pymongo.MongoClient(uri)
         crawler.info("db: %s", settings['MONGODB_DB'])
         self.db = connection[settings['MONGODB_DB']]
+        #self.db.authenticate(quote_plus(settings['MONGODB_USER']), quote_plus(settings['MONGODB_PASSWORD']))
 
     def process_item(self, item, spider):
         crawler.info('process_item: start')
@@ -55,18 +56,17 @@ class MongoDBPipeline(object):
                         crawler.info('add futures_news: %s', dict(item))
                 elif type(item) == F10Item:
                     title = item['title']
+                    hkey = "news_filter"
                     key = "news_filter_{}".format(title)
-                    if self.server.get(key) is None:
-                        self.server.set(key, title)
+                    if self.server.hget(hkey, title) is None:
+                        self.server.hset(hkey, title, title)
                         self.db['futures_news'].insert(dict(item))
                         crawler.info('add futures_news: %s', dict(item))
                 elif type(item) == InvestmentAdviserItem:
-                    crawler.info('process_item: start22222')
+                    hkey = "investment_advisers_filter"
                     title = item['title']
-                    key = "investment_advisers_filter_{}".format(title)
-                    if self.server.get(key) is None:
-                        crawler.info('process_item: start33333')
-                        self.server.set(key, title)
+                    if self.server.hget(hkey, title) is None:
+                        self.server.hset(hkey, title, title)
                         self.db['investment_advisers'].insert(dict(item))
                         crawler.info('add investment_advisers: %s', dict(item))
             except(pymongo.errors.WriteError, KeyError) as err:

@@ -54,4 +54,18 @@ class CourseItem(Item):
     huxing = Field()
     tel = Field()
 
+class BossDirectEmploymentItem(Item):
+    position_name = Field()
+    salary1 = Field()
+    salary2 = Field()
+    address = Field()
+    experience = Field()
+    education = Field()
+    line_business = Field()
+    financing_stage = Field()
+    employees = Field()
+    issue_date = Field()
+    job_description = Field()
+    company_description = Field()
+
 
