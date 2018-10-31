@@ -107,7 +107,7 @@ if __name__ == '__main__':
     crawler.info("start SevenTwentyFourNewsSchedule")
     p = SevenTwentyFourNewsSchedule()
     p.fetch()
-    schedule.every(5).seconds.do(run)
+    schedule.every(1).minutes.do(run)
     while True:
         schedule.run_pending()
         time.sleep(1)
