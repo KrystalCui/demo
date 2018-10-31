@@ -100,14 +100,13 @@ def run():
 #     # sch = Sch()
 #     # sch.add_job(p.fetch, 'interval', minutes=1)  # 每1分钟抓取一次
 #     # sch.start()
-
 #     schedule.every(1).seconds.do(p.fetch())
 
 if __name__ == '__main__':
     crawler.info("start SevenTwentyFourNewsSchedule")
     p = SevenTwentyFourNewsSchedule()
     p.fetch()
-    schedule.every(1).minutes.do(run)
+    schedule.every(30).seconds.do(run)
     while True:
         schedule.run_pending()
         time.sleep(1)
