@@ -85,14 +85,14 @@ class SevenTwentyFourNewsSchedule:
             i = i + 1
             hkey = "seventwentyfournews_filter"
             try:
-                title = item['title']
-            except KeyError:
+                _id = item['_id']
+                if self.server.hget(hkey, _id) is None:
+                    self.server.hset(hkey, _id, _id)
+                    self.db['seventwentyfournews'].insert_one(dict(item))
+            except :
                 continue
+            # a = self.server.hget(hkey, _id)
 
-            if self.server.hget(hkey, title) is None:
-
-                self.server.hset(hkey, title, title)
-                self.db['seventwentyfournews'].insert(dict(item))
 
 def run():
     p = SevenTwentyFourNewsSchedule()
@@ -103,8 +103,14 @@ def run():
 
 #     schedule.every(1).seconds.do(p.fetch())
 
-# if __name__ == '__main__':
-#     crawler.info("start SevenTwentyFourNewsSchedule")
+if __name__ == '__main__':
+    crawler.info("start SevenTwentyFourNewsSchedule")
+    p = SevenTwentyFourNewsSchedule()
+    p.fetch()
+    schedule.every(5).seconds.do(run)
+    while True:
+        schedule.run_pending()
+        time.sleep(1)
 #     p = SevenTwentyFourNewsSchedule()
 #     p.fetch()
 #
@@ -113,7 +119,7 @@ def run():
         # time.sleep(1)
     # run()
 # p = SevenTwentyFourNewsSchedule()
-schedule.every(2).seconds.do(run)
-while True:
-    schedule.run_pending()
-    time.sleep(1)
+# schedule.every(2).seconds.do(run)
+# while True:
+#     schedule.run_pending()
+#     time.sleep(1)
