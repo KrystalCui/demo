@@ -37,6 +37,7 @@ class MongoDBPipeline(object):
         #self.db.authenticate(quote_plus(settings['MONGODB_USER']), quote_plus(settings['MONGODB_PASSWORD']))
 
     def process_item(self, item, spider):
+        print('process_itemd')
         crawler.info('process_item: start')
         valid = True
         for data in item:
@@ -69,6 +70,13 @@ class MongoDBPipeline(object):
                         self.server.hset(hkey, title, title)
                         self.db['investment_advisers'].insert(dict(item))
                         crawler.info('add investment_advisers: %s', dict(item))
+                elif type(item) == SevenTwentyFourNewsItem:
+                    hkey = "seventwentyfournews_filter"
+                    title = item['title']
+                    if self.server.hget(hkey, title) is None:
+                        self.server.hset(hkey, title, title)
+                        self.db['seventwentyfournews'].insert(dict(item))
+                        crawler.info('add seventwentyfournews: %s', dict(item))
             except(pymongo.errors.WriteError, KeyError) as err:
                 crawler.info('add error: %s', err)
                 raise DropItem("Duplicated Item: {}".format(item['title']))
