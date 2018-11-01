@@ -79,5 +79,17 @@ class SevenTwentyFourNewsItem(Item):
     url = Field()#即将跳转的网页
     commentnum = Field()
 
+class SinaFinanceNewsItem(Item):
+    time = Field()
+    title = Field()
+    url = Field()
+    page = Field()
 
-
+class EasyMoneyInvestmentItem(Item):
+    imageurl = Field()
+    imagescr = Field()
+    titleurl = Field()
+    titletext = Field()
+    contenttitle = Field()
+    contenttext = Field()
+    time = Field()
