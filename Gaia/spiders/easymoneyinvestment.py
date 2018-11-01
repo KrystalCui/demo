@@ -5,8 +5,8 @@ import urllib.request
 import os
 import urllib3
 import requests
-import re
-from PIL import Image
+from Gaia.gaiaupslpy import *
+
 
 class EasyMoneyInvestment(scrapy.Spider):
     name = "EasyMoneyInvestmentSpider"
@@ -22,20 +22,21 @@ class EasyMoneyInvestment(scrapy.Spider):
         uls = response.xpath('.//ul[@id="newsListContent"]')
         for ul in uls:
             item = EasyMoneyInvestmentItem()
-            item['imageurl'] = ul.xpath('.//div[@class="image"]/a/@href').extract_first()
-            crawler.info(item['imageurl'])
-            item['imagescr'] = ul.xpath('.//div[@class="image"]/a/img/@src').extract_first()
-            crawler.info(item['imagescr'])
             item['titleurl'] = ul.xpath('.//p[@class="title"]/a/@href').extract_first()
-            crawler.info(item['titleurl'])
+            crawler.info('titleurl : %s',item['titleurl'])
             item['titletext'] = ul.xpath('.//p[@class="title"]/a/text()').extract_first()
-            crawler.info(item['titletext'])
+            crawler.info('titletext : %s',item['titletext'])
             item['contenttitle'] = ul.xpath('.//p[@class="info"]/@title').extract_first()
-            crawler.info(item['contenttitle'])
+            crawler.info('contenttitle : %s',item['contenttitle'])
             item['contenttext'] = ul.xpath('.//p[@class="info"]/text()').extract_first()
-            crawler.info(item['contenttext'])
+            crawler.info('contenttext : %s',item['contenttext'])
             item['time'] = ul.xpath('.//p[@class="time"]/text()').extract_first()
-            crawler.info(item['time'])
+            crawler.info('time : %s',item['time'])
+            item['imageurl'] = ul.xpath('.//div[@class="image"]/a/@href').extract_first()
+            crawler.info('imageurl : %s', item['imageurl'])
+            imagescr = ul.xpath('.//div[@class="image"]/a/img/@src').extract_first()
+            item['imagescr'] = ul.xpath('.//div[@class="image"]/a/img/@src').extract_first()
+
             try:
                 self.strwd = os.getcwd() + '\\image'
                 if not os.path.isdir(self.strwd):
@@ -43,10 +44,27 @@ class EasyMoneyInvestment(scrapy.Spider):
                 namenum = item['imagescr'].rfind('/') + 1
                 self.name = item['imagescr'][namenum:]
                 urllib.request.urlretrieve(item['imagescr'], self.strwd + '\\' + self.name)
+                text = gaia_upload_u('http://gress.gaiafintech.com/upload', imagescr)
+                if len(text) > 0:
+                    textidvalue = text.split(',')
+                    textidsize = len(textidvalue)
+                    for i in range(0,textidsize,1):
+                        idvalues = textidvalue[i].split(':')
+                        if idvalues[0] == '{"dfiles"':
+                            if idvalues[1] != None or '':
+                                item['imagescr'] = idvalues[1]
+                                break
+                            else:
+                                crawler.info('%s的图片未上传成功', item['titletext'])
+                                break
+                    crawler.info('imagescr : %s', item['imagescr'])
+
+
             except Exception as e:
                 print(e)
                 crawler.info('%s的图片下载未成功',item['titletext'])
                 continue
+
             yield item
 
     # def topost(self):
