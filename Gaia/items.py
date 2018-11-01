@@ -68,4 +68,16 @@ class BossDirectEmploymentItem(Item):
     job_description = Field()
     company_description = Field()
 
+class SevenTwentyFourNewsItem(Item):
+    _id = Field()
+    title = Field()
+    simtitle = Field()
+    showtime = Field()
+    ordertime = Field()
+    digest = Field()
+    simdigest = Field()
+    url = Field()#即将跳转的网页
+    commentnum = Field()
+
+
 
