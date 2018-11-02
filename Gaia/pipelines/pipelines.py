@@ -44,7 +44,6 @@ class MongoDBPipeline(object):
                 valid = False
                 raise DropItem("Missing{0}!".format(data))
         if valid:
-            crawler.info('process_item: start11111')
             try:
                 'This returns the number of values added, zero id alread exists.'
                 if type(item) == ParameterItem:

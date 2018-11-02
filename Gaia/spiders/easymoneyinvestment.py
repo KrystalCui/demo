@@ -6,15 +6,17 @@ import os
 import urllib3
 import requests
 from Gaia.gaiaupslpy import *
+import time
 
 
 class EasyMoneyInvestment(scrapy.Spider):
     name = "EasyMoneyInvestmentSpider"
     def __init__(self):
         self.url = 'http://futures.eastmoney.com/a/cqhdd_{}.html'
+        self.ISOTIMEFORMAT = '%Y-%m-%d %X'
 
     def start_requests(self):
-        for i in range(1,25,1):
+        for i in range(25,1,-1):
             url = self.url.format(i)
             yield scrapy.Request(url=url, callback= self.parse_easymoneyinvestment, dont_filter = True)
 
@@ -22,6 +24,8 @@ class EasyMoneyInvestment(scrapy.Spider):
         uls = response.xpath('.//ul[@id="newsListContent"]')
         for ul in uls:
             item = EasyMoneyInvestmentItem()
+            item['localtime'] = time.strftime(self.ISOTIMEFORMAT, time.localtime())
+            crawler.info('localtime : %s', item['localtime'])
             item['titleurl'] = ul.xpath('.//p[@class="title"]/a/@href').extract_first().strip()
             crawler.info('titleurl : %s',item['titleurl'])
             item['titletext'] = ul.xpath('.//p[@class="title"]/a/text()').extract_first().strip()

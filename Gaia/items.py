@@ -93,6 +93,7 @@ class EasyMoneyInvestmentItem(Item):
     contenttitle = Field()
     contenttext = Field()
     time = Field()
+    localtime = Field()
 
 class QQFinanceItem(Item):
     _id = Field()
