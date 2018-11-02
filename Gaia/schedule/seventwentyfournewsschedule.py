@@ -48,11 +48,11 @@ class SevenTwentyFourNewsSchedule:
                 listkeyvalue = listattribute[j].split(':')
                 if len(listkeyvalue) > 0:
                     if listkeyvalue[0] == '"title"':
-                        item['title'] = listkeyvalue[1][0:].strip('"')
+                        item['title'] = listkeyvalue[1].strip('"')
                         crawler.info('title:%s', item['title'])
                         # print('title:%s'%item['title'])
                     if listkeyvalue[0] == '"simtitle"':
-                        item['simtitle'] = listkeyvalue[1][0:].strip('"')
+                        item['simtitle'] = listkeyvalue[1].strip('"')
                         crawler.info('simtitle:%s', item['simtitle'])
                         # print('simtitle:%s'%item['simtitle'])
                     if listkeyvalue[0] == '"showtime"':
@@ -66,19 +66,19 @@ class SevenTwentyFourNewsSchedule:
                         crawler.info('ordertime:%s', item['ordertime'])
                         # print('showtime:%s' % item['showtime'])
                     if listkeyvalue[0] == '"id"':
-                        item['_id'] = listkeyvalue[1][0:].strip('"')
+                        item['_id'] = listkeyvalue[1].strip('"')
                         crawler.info('_id:%s', item['_id'])
                         # print('_id:%s' % item['_id'])
                     if listkeyvalue[0] == '"commentnum"':
-                        item['commentnum'] = listkeyvalue[1][0:].strip('"')
+                        item['commentnum'] = listkeyvalue[1].strip('"')
                         crawler.info('commentnum:%s', item['commentnum'])
                         # print('commentnum:%s' % item['commentnum'])
                     if listkeyvalue[0] == '"digest"':
-                        item['digest'] = listkeyvalue[1][0:].strip('"')
+                        item['digest'] = listkeyvalue[1].strip('"')
                         crawler.info('digest:%s', item['digest'])
                         # print('digest:%s' % item['digest'])
                     if listkeyvalue[0] == '"simdigest"':
-                        item['simdigest'] = listkeyvalue[1][0:].strip('"')
+                        item['simdigest'] = listkeyvalue[1].strip('"')
                         crawler.info('simdigest:%s', item['simdigest'])
                         # print('simdigest:%s' % item['simdigest'])
                 j = j + 1
