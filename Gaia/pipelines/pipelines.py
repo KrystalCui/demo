@@ -90,6 +90,14 @@ class MongoDBPipeline(object):
                         self.server.hset(hkey, title, title)
                         self.db['easymoneyinvestment'].insert(dict(item))
                         crawler.info('add easymoneyinvestment: %s', dict(item))
+                elif type(item) == QQFinanceItem:
+                    hkey = "qqfinanceitem_filter"
+                    _id = item['_id']
+                    title = item['titletext']
+                    if self.server.hget(hkey, _id) is None:
+                        self.server.hset(hkey, _id, title)
+                        self.db['qqfinanceitem'].insert(dict(item))
+                        crawler.info('add qqfinanceitem: %s', dict(item))
             except(pymongo.errors.WriteError, KeyError) as err:
                 crawler.info('add error: %s', err)
                 raise DropItem("Duplicated Item: {}".format(item['title']))

@@ -86,10 +86,17 @@ class SinaFinanceNewsItem(Item):
     page = Field()
 
 class EasyMoneyInvestmentItem(Item):
-    imageurl = Field()
+    imageurl = Field()  #点击图片后跳转的链接
     imagescr = Field()
     titleurl = Field()
     titletext = Field()
     contenttitle = Field()
     contenttext = Field()
     time = Field()
+
+class QQFinanceItem(Item):
+    _id = Field()
+    imgscr = Field()
+    url = Field()
+    abouttime = Field()
+    titletext = Field()
