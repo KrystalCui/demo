@@ -86,6 +86,7 @@ class SinaFinanceNewsItem(Item):
     page = Field()
 
 class EasyMoneyInvestmentItem(Item):
+    datasource = Field()
     imageurl = Field()  #点击图片后跳转的链接
     imagescr = Field()
     titleurl = Field()

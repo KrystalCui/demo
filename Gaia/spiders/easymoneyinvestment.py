@@ -28,6 +28,7 @@ class EasyMoneyInvestment(scrapy.Spider):
                 item = EasyMoneyInvestmentItem()
                 item['localtime'] = time.strftime(self.ISOTIMEFORMAT, time.localtime())
                 crawler.info('localtime : %s', item['localtime'])
+                item['datasource'] = "东财"
                 item['titleurl'] = li.xpath('.//p[@class="title"]/a/@href').extract_first().strip()
                 crawler.info('titleurl : %s',item['titleurl'])
                 item['titletext'] = li.xpath('.//p[@class="title"]/a/text()').extract_first().strip()
@@ -41,7 +42,7 @@ class EasyMoneyInvestment(scrapy.Spider):
                 item['imageurl'] = li.xpath('.//div[@class="image"]/a/@href').extract_first().strip()
                 crawler.info('imageurl : %s', item['imageurl'])
                 imagescr = li.xpath('.//div[@class="image"]/a/img/@src').extract_first().strip()
-                item['imagescr'] = li.xpath('.//div[@class="image"]/a/img/@src').extract_first().strip()
+                item['imagescr'] = imagescr#li.xpath('.//div[@class="image"]/a/img/@src').extract_first().strip()
 
                 try:
                     self.strwd = os.getcwd() + '\\image'
