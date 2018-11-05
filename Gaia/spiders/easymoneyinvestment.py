@@ -10,7 +10,7 @@ import time
 
 
 class EasyMoneyInvestment(scrapy.Spider):
-    name = "EasyMoneyInvestmentSpider"
+    name = "InvestmentNewsSpider"
     def __init__(self):
         self.url = 'http://futures.eastmoney.com/a/cqhdd_{}.html'
         self.ISOTIMEFORMAT = '%Y-%m-%d %X'
