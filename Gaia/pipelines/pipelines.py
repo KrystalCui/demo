@@ -83,12 +83,12 @@ class MongoDBPipeline(object):
                         self.db['sinafinancenews'].insert(dict(item))
                         crawler.info('add sinafinancenews: %s', dict(item))
                 elif type(item) == EasyMoneyInvestmentItem:
-                    hkey = "easymoneyinvestment_filter"
+                    hkey = "investmentnews_filter"
                     title = item['titletext']
                     if self.server.hget(hkey, title) is None:
                         self.server.hset(hkey, title, title)
-                        self.db['easymoneyinvestment'].insert(dict(item))
-                        crawler.info('add easymoneyinvestment: %s', dict(item))
+                        self.db['investmentnews'].insert(dict(item))
+                        crawler.info('add investmentnews: %s', dict(item))
                 elif type(item) == QQFinanceItem:
                     hkey = "qqfinanceitem_filter"
                     _id = item['_id']
