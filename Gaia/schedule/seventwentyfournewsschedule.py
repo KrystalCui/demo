@@ -8,6 +8,7 @@ from Gaia.config import *
 from urllib.parse import quote_plus
 import schedule
 import time
+import json
 
 class SevenTwentyFourNewsSchedule:
     def __init__(self):
@@ -35,54 +36,32 @@ class SevenTwentyFourNewsSchedule:
         request = urllib.request.Request(self.url)
         response = urllib.request.urlopen(request)
         content = response.read().decode("utf-8")
-        # crawler.info(content)
-        listeachone = content.split('{')
-        sizeeach = int(len(listeachone) - 1)
-        i = 1
-        while (i < sizeeach):
-            # print("好好22221 + i" + i)
-            listattribute = listeachone[i + 1].split(',')
-            j = 0
+        splitnum = content.rfind('=') + 1
+        jsoncotent = json.loads(content[splitnum:])
+        for each in jsoncotent['LivesList']:
             item = SevenTwentyFourNewsItem()
-            while (j < (len(listattribute) - 1)):
-                listkeyvalue = listattribute[j].split(':')
-                if len(listkeyvalue) > 0:
-                    if listkeyvalue[0] == '"title"':
-                        item['title'] = listkeyvalue[1].strip('"')
-                        crawler.info('title:%s', item['title'])
-                        # print('title:%s'%item['title'])
-                    if listkeyvalue[0] == '"simtitle"':
-                        item['simtitle'] = listkeyvalue[1].strip('"')
-                        crawler.info('simtitle:%s', item['simtitle'])
-                        # print('simtitle:%s'%item['simtitle'])
-                    if listkeyvalue[0] == '"showtime"':
-                        item['showtime'] = listkeyvalue[1].strip('"') + ":" + listkeyvalue[2] + ":" + listkeyvalue[3].strip(
-                            '"')
-                        crawler.info('showtime:%s', item['showtime'])
-                        # print('showtime:%s' % item['showtime'])
-                    if listkeyvalue[0] == '"ordertime"':
-                        item['ordertime'] = listkeyvalue[1].strip('"') + ":" + listkeyvalue[2] + ":" + listkeyvalue[3].strip(
-                            '"')
-                        crawler.info('ordertime:%s', item['ordertime'])
-                        # print('showtime:%s' % item['showtime'])
-                    if listkeyvalue[0] == '"id"':
-                        item['_id'] = listkeyvalue[1].strip('"')
-                        crawler.info('_id:%s', item['_id'])
-                        # print('_id:%s' % item['_id'])
-                    if listkeyvalue[0] == '"commentnum"':
-                        item['commentnum'] = listkeyvalue[1].strip('"')
-                        crawler.info('commentnum:%s', item['commentnum'])
-                        # print('commentnum:%s' % item['commentnum'])
-                    if listkeyvalue[0] == '"digest"':
-                        item['digest'] = listkeyvalue[1].strip('"')
-                        crawler.info('digest:%s', item['digest'])
-                        # print('digest:%s' % item['digest'])
-                    if listkeyvalue[0] == '"simdigest"':
-                        item['simdigest'] = listkeyvalue[1].strip('"')
-                        crawler.info('simdigest:%s', item['simdigest'])
-                        # print('simdigest:%s' % item['simdigest'])
-                j = j + 1
-            i = i + 1
+            item['title'] = each['title']
+            crawler.info('title:%s', item['title'])
+            item['simtitle'] = each['simtitle']
+            crawler.info('simtitle:%s', item['simtitle'])
+            item['showtime'] = each['showtime']
+            crawler.info('showtime:%s', item['showtime'])
+            item['ordertime'] = each['ordertime']
+            crawler.info('ordertime:%s', item['ordertime'])
+            item['_id'] = each['id']
+            crawler.info('_id:%s', item['_id'])
+            item['commentnum'] = each['commentnum']
+            crawler.info('commentnum:%s', item['commentnum'])
+            if each['digest'] == None or each['digest'] =='':
+                item['digest'] = item['title']
+            else:
+                item['digest'] = each['digest']
+            crawler.info('digest:%s', item['digest'])
+            if each['simdigest'] == None or each['simdigest'] == '':
+                item['simdigest'] = each['simtitle']
+            else:
+                item['simdigest'] = each['simdigest']
+            crawler.info('simdigest:%s', item['simdigest'])
             hkey = "seventwentyfournews_filter"
             try:
                 _id = item['_id']
