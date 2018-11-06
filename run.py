@@ -1,5 +1,3 @@
-import subprocess
-
 from scrapy import cmdline
 from Gaia.spiders.seventwentyfournews import InvestmentNewsSpider
 import os
@@ -8,7 +6,7 @@ import time
 from subprocess import Popen
 
 def run():
-    subprocess.Popen("scrapy crawl SinaFinanceNewsSpider")
+    subprocess.Popen("scrapy crawl InvestmentNewsSpider")
 
 
 if __name__ == '__main__':
@@ -20,4 +18,4 @@ if __name__ == '__main__':
     #     time.sleep(1)
     while True:
         run()
-        time.sleep(600)  # 每隔一天运行一次 24*60*60=86400s
+        time.sleep(600)  # 每隔10min
