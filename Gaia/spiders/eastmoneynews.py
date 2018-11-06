@@ -1,5 +1,5 @@
 import scrapy
-from Gaia.items import EasyMoneyInvestmentItem
+from Gaia.items import NewsItem
 from Gaia.logger import crawler
 import urllib.request
 import os
@@ -9,8 +9,8 @@ from Gaia.gaiaupslpy import *
 import time
 
 
-class EasyMoneyInvestment(scrapy.Spider):
-    name = "InvestmentNewsSpider"
+class EastMoneyNewsSpider(scrapy.Spider):
+    name = "EastMoneyNewsSpider"
     def __init__(self):
         self.url = 'http://futures.eastmoney.com/a/cqhdd_{}.html'
         self.ISOTIMEFORMAT = '%Y-%m-%d %X'
@@ -25,10 +25,10 @@ class EasyMoneyInvestment(scrapy.Spider):
         for ul in uls:
             lis = ul.xpath('.//li')
             for li in lis:
-                item = EasyMoneyInvestmentItem()
+                item = NewsItem()
                 item['localtime'] = time.strftime(self.ISOTIMEFORMAT, time.localtime())
                 crawler.info('localtime : %s', item['localtime'])
-                item['datasource'] = "东财"
+                item['datasource'] = "东方财富网"
                 item['titleurl'] = li.xpath('.//p[@class="title"]/a/@href').extract_first().strip()
                 crawler.info('titleurl : %s',item['titleurl'])
                 item['titletext'] = li.xpath('.//p[@class="title"]/a/text()').extract_first().strip()

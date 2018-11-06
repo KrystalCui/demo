@@ -6,7 +6,7 @@ import time
 from subprocess import Popen
 
 def run():
-    subprocess.Popen("scrapy crawl InvestmentNewsSpider")
+    subprocess.Popen("scrapy crawl EastMoneyNewsSpider")
 
 
 if __name__ == '__main__':
