@@ -1,12 +1,19 @@
 from scrapy import cmdline
-from Gaia.spiders.seventwentyfournews import InvestmentNewsSpider
+from Gaia.schedule.seventwentyfournewsschedule import SevenTwentyFourNewsSchedule
 import os
+import schedule
 import subprocess
 import time
 from subprocess import Popen
 
+
 def run():
     subprocess.Popen("scrapy crawl EastMoneyNewsSpider")
+
+
+def runseventwentyfournewsschedule():
+    p = SevenTwentyFourNewsSchedule()
+    p.fetch()
 
 
 if __name__ == '__main__':
@@ -16,6 +23,9 @@ if __name__ == '__main__':
     # while True:
     #     schedule.run_pending()
     #     time.sleep(1)
+    run()
+    schedule.every(30).seconds.do(runseventwentyfournewsschedule)
+    schedule.every(600).seconds.do(run)
     while True:
-        run()
-        time.sleep(600)  # 每隔10min
+        schedule.run_pending()
+        time.sleep(1)
