@@ -23,7 +23,9 @@ if __name__ == '__main__':
     # while True:
     #     schedule.run_pending()
     #     time.sleep(1)
-    run()
+    # run()
+    subprocess.Popen("scrapy crawl EastMoneyNewsSpider")
+    runseventwentyfournewsschedule()
     schedule.every(30).seconds.do(runseventwentyfournewsschedule)
     schedule.every(600).seconds.do(run)
     while True:
