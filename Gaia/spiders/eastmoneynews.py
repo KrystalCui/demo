@@ -3,15 +3,9 @@ from Gaia.items import NewsItem
 from Gaia.logger import crawler
 import urllib.request
 import os
-import urllib3
-import requests
 from Gaia.gaiaupslpy import *
-import subprocess
 import time
-from subprocess import Popen
-import schedule
 import json
-from scrapy import cmdline
 
 
 class EastMoneyNewsSpider(scrapy.Spider):
@@ -110,8 +104,7 @@ class EastMoneyNewsSpider(scrapy.Spider):
         # except Exception as e:
         #     print(e)
 
-if __name__ == '__main__':
-    cmdline.execute("scrapy crawl EastMoneyNewsSpider".split())
+
     # schedule.every(5).seconds.do(run)
 
 

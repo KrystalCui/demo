@@ -102,3 +102,37 @@ class QQFinanceItem(Item):
     url = Field()
     abouttime = Field()
     titletext = Field()
+
+class FuturesExchangeItem(Item):
+    productId = Field()
+    productName = Field()
+    productCode = Field()
+    uri = Field()
+    exchangeCode = Field()
+    datasource = Field()
+
+class ContractSpecificationsItem(Item):
+    productName = Field()
+    ContractUnit = Field()
+    PriceQuotation = Field()
+    TradingHours = Field()
+    MinimumPriceFluctuation = Field()
+    ProductCode = Field()
+    ListedContracts = Field()
+    SettlementMethod = Field()
+    TerminationOfTrading = Field()
+    TradeAtMarkerOrTradeAtSettlementRules = Field()
+    SettlementProcedures = Field()
+    PositionLimits = Field()
+    ExchangeRulebook = Field()
+    BlockMinimum = Field()
+    PriceLimitOrCircuit = Field()
+    VendorCodes = Field()
+
+
+
+
+
+
+
+
