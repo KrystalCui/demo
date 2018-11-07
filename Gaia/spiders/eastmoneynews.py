@@ -21,7 +21,7 @@ class EastMoneyNewsSpider(scrapy.Spider):
         self.ISOTIMEFORMAT = '%Y-%m-%d %X'
 
     def start_requests(self):
-        for i in range(1, 26, 1):
+        for i in range(25, 0, -1):
             url = self.url.format(i)
             yield scrapy.Request(url=url, callback= self.parse_easymoneyinvestment, dont_filter = True)
 
@@ -30,10 +30,6 @@ class EastMoneyNewsSpider(scrapy.Spider):
         for ul in uls:
             lis = ul.xpath('.//li')
             for li in lis:
-                if li.xpath('.//p[@class="title"]/a/text()').extract_first().strip() == '11月7日期市早盘攻略：情绪改善 棉花多单持有':
-                    a = 1
-                    print(a)
-                    print('又出什么幺蛾子')
                 item = NewsItem()
                 item['localtime'] = time.strftime(self.ISOTIMEFORMAT, time.localtime())
                 crawler.info('localtime : %s', item['localtime'])
