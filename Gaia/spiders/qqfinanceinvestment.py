@@ -14,6 +14,7 @@ class QQFinance(scrapy.Spider):
         yield scrapy.Request(url= self.url, callback= self.parse_qqfinance, dont_filter = True)
 
     def parse_qqfinance(self, response):
+        # print(response)
         lis = response.xpath('.//li[@class="item cf"]')
         for li in lis:
             item = QQFinanceItem()
@@ -28,7 +29,7 @@ class QQFinance(scrapy.Spider):
             item['imgscr'] = li.xpath('.//a[@class="picture"]/img/@scr').extract_first()#.strip()
             # crawler.info('imgscr : %s', item['imgscr'])
             try:
-                strwd = os.getcwd() + '\\img'
+                strwd = os.getcwd() + '\\img_qqfinance'
                 if not os.path.isdir(strwd):
                     os.mkdir('img_qqfinance')
                 lastestnum = item['imgscr'].rfind('/')

@@ -6,7 +6,12 @@ import os
 import urllib3
 import requests
 from Gaia.gaiaupslpy import *
+import subprocess
 import time
+from subprocess import Popen
+import schedule
+import json
+from scrapy import cmdline
 
 
 class EastMoneyNewsSpider(scrapy.Spider):
@@ -16,7 +21,7 @@ class EastMoneyNewsSpider(scrapy.Spider):
         self.ISOTIMEFORMAT = '%Y-%m-%d %X'
 
     def start_requests(self):
-        for i in range(25, 1, -1):
+        for i in range(1, 26, 1):
             url = self.url.format(i)
             yield scrapy.Request(url=url, callback= self.parse_easymoneyinvestment, dont_filter = True)
 
@@ -25,6 +30,10 @@ class EastMoneyNewsSpider(scrapy.Spider):
         for ul in uls:
             lis = ul.xpath('.//li')
             for li in lis:
+                if li.xpath('.//p[@class="title"]/a/text()').extract_first().strip() == '11月7日期市早盘攻略：情绪改善 棉花多单持有':
+                    a = 1
+                    print(a)
+                    print('又出什么幺蛾子')
                 item = NewsItem()
                 item['localtime'] = time.strftime(self.ISOTIMEFORMAT, time.localtime())
                 crawler.info('localtime : %s', item['localtime'])
@@ -33,9 +42,15 @@ class EastMoneyNewsSpider(scrapy.Spider):
                 crawler.info('titleurl : %s',item['titleurl'])
                 item['titletext'] = li.xpath('.//p[@class="title"]/a/text()').extract_first().strip()
                 crawler.info('titletext : %s',item['titletext'])
-                item['contenttitle'] = li.xpath('.//p[@class="info"]/@title').extract_first().strip()
+                if li.xpath('.//p[@class="info"]/@title').extract_first() == None or li.xpath('.//p[@class="info"]/@title').extract_first() == '':
+                    item['contenttitle'] = item['titletext']
+                else:
+                    item['contenttitle'] = li.xpath('.//p[@class="info"]/@title').extract_first().strip()
                 crawler.info('contenttitle : %s',item['contenttitle'])
-                item['contenttext'] = li.xpath('.//p[@class="info"]/text()').extract_first().strip()
+                if li.xpath('.//p[@class="info"]/text()').extract_first() == None or li.xpath('.//p[@class="info"]/text()').extract_first() == '':
+                    item['contenttext'] = item['contenttitle']
+                else :
+                    item['contenttext'] = li.xpath('.//p[@class="info"]/text()').extract_first().strip()
                 crawler.info('contenttext : %s',item['contenttext'])
                 item['time'] = li.xpath('.//p[@class="time"]/text()').extract_first().strip()
                 crawler.info('time : %s',item['time'])
@@ -52,19 +67,14 @@ class EastMoneyNewsSpider(scrapy.Spider):
                     self.name = item['imagescr'][namenum:]
                     urllib.request.urlretrieve(item['imagescr'], self.strwd + '\\' + self.name)
                     text = gaia_upload_u('http://gress.gaiafintech.com/upload', imagescr)
-                    if len(text) > 0:
-                        textidvalue = text.split(',')
-                        textidsize = len(textidvalue)
-                        for i in range(0,textidsize,1):
-                            idvalues = textidvalue[i].split(':')
-                            if idvalues[0] == '{"dfiles"':
-                                if idvalues[1] != None or '':
-                                    item['imagescr'] = idvalues[1].strip('"')
-                                    break
-                                else:
-                                    crawler.info('%s的图片未上传成功', item['titletext'])
-                                    break
-                        crawler.info('imagescr : %s', item['imagescr'])
+                    jsontext = json.loads(text)
+                    dfilesjson = jsontext['dfiles']
+                    if len(dfilesjson) > 0:
+                        item['imagescr'] = jsontext['dfiles']
+                    else:
+                        crawler.info('%s的图片未上传成功', item['titletext'])
+                        break
+                    crawler.info('imagescr : %s', item['imagescr'])
 
 
                 except Exception as e:
@@ -104,6 +114,9 @@ class EastMoneyNewsSpider(scrapy.Spider):
         # except Exception as e:
         #     print(e)
 
+if __name__ == '__main__':
+    cmdline.execute("scrapy crawl EastMoneyNewsSpider".split())
+    # schedule.every(5).seconds.do(run)
 
 
 
