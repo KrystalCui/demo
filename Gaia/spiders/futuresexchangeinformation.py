@@ -22,9 +22,12 @@ class futuresexchangeinformation(scrapy.Spider):
     def start_requests(self):
         # url = self.pre + self.baseurl
         # yield scrapy.Request(url=url, callback=self.parse_futures, dont_filter = True)
+        hearder = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36',
+            'Connection': 'keep-alive'}
         for url in self.list:
             # url = self.list
-            yield scrapy.Request(url=url, callback=self.parse_getbaseurl, dont_filter=True)
+            yield scrapy.Request(url=url, callback=self.parse_getbaseurl, dont_filter=True, headers=hearder)
 
     def parse_getbaseurl(self, response):
         scri = response.xpath('.//div[@class="cmeDelayedQuotes section"]/script[3]/text()').extract_first()
@@ -37,45 +40,69 @@ class futuresexchangeinformation(scrapy.Spider):
                 else:
                     continue
         url = self.pre + baseurl
-        yield scrapy.Request(url=url, callback=self.parse_futures, dont_filter=True)
+        hearder = {'User-Agent':'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36', 'Connection':'keep-alive'}
+        yield scrapy.Request(url=url, callback=self.parse_futures, dont_filter=True, headers=hearder)
 
 
     def parse_futures(self, response):
         contentaAll = json.loads(response.text)
         for each in contentaAll:
-            # item = FuturesExchangeItem()
-            # item['productId'] = each['productId']
-            # crawler.info('productId:%s', item['productId'])
-            # item['productName'] = each['productName']
-            # crawler.info('productName:%s', item['productName'])
-            # item['productCode'] = each['productCode']
-            # crawler.info('productCode:%s', item['productCode'])
-            # item['uri'] = each['uri']
-            # crawler.info('uri:%s', item['uri'])
-            # item['exchangeCode'] = each['exchangeCode']
-            # crawler.info('exchangeCode:%s', item['exchangeCode'])
-            # item['datasource'] = '芝商所'
-            # crawler.info('datasource:%s', item['datasource'])
             self.eachuri = each['uri'][:each['uri'].rfind('.')]
             url = self.pre + '/cn-s' + self.eachuri + self.suf
-            yield scrapy.Request(url=url, callback=self.parse_contract_specifications, dont_filter=True)
+            hearder = {
+                'User-Agent': 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36',
+                'Connection': 'keep-alive'}
+            yield scrapy.Request(url=url, callback=self.parse_contract_specifications, dont_filter=True,headers=hearder)
             # yield item
 
     def parse_contract_specifications(self, response):
         trs = response.xpath('.//tr')
         list = {}
+        if response.xpath('.//head/title/text()').extract_first().rfind('铜期货及期权') > 0:
+            print('aaaaa')
+            print('看交易时间')
+        if response.xpath('.//head/title/text()').extract_first().rfind('（WTI）原油期货') > 0:
+            print('aaaaa')
+            print('看交易时间')
+        if response.xpath('.//head/title/text()').extract_first().rfind('活牛期货') > 0:
+            print('aaaaa')
+            print('看交易时间')
+        if response.xpath('.//head/title/text()').extract_first().rfind('Argus Propane Far East Index 期货 合约规格 - CME 组') > 0:
+            print('aaaaa')
+            print('看交易时间')
+        # time_flag = False
         for tr in trs:
-            trtext = tr.xpath('.//td[1]/text()').extract_first().strip()
-            list.get(trtext)# = tr.xpath('.//tr[2]')
-            if tr.xpath('.//td[2]/text()').extract_first() == None:
-                list[trtext] = tr.xpath('.//td[2]/a/text()').extract_first().strip()
+            trtext = ''
+            if tr.xpath('.//td[1]/p/text()').extract_first() != None:
+                trtext = tr.xpath('.//td[1]/p/text()').extract_first().strip()
             else:
+                trtext = tr.xpath('.//td[1]/text()').extract_first().strip()
+            list.get(trtext)# = tr.xpath('.//tr[2]')
+            if tr.xpath('.//td[2]/p/text()').extract_first() != None:
+                ps = tr.xpath('.//p')
+                pstr = ''
+                for p in ps:
+                    pstr += p.xpath('text()').extract_first().strip()
+                list[trtext] = pstr
+            elif tr.xpath('.//td[2]/a/text()').extract_first() != None:
+                list[trtext] = tr.xpath('.//td[2]/a/text()').extract_first().strip()
+            elif tr.xpath('.//td[2]').extract_first() != None:
                 list[trtext] = tr.xpath('.//td[2]/text()').extract_first().strip()
+            else:
+                list[trtext] = tr.xpath('.//th/text()').extract_first().strip()
+            if tr.xpath('.//td[3]/text()').extract_first() != None:
+                list[trtext] += tr.xpath('.//td[3]/text()').extract_first().strip()
+            if 'CME ClearPort' in trtext:#trtext.rfind('CME Globex') > 0 or
+                if trtext != '交易时间':
+                    list['交易时间'] += '\n' + trtext + list[trtext]
+
         item = ContractSpecificationsItem()
+
         item['datasource'] = '芝商所'
         crawler.info('来源:%s', item['datasource'])
         productName = response.xpath('.//head/title/text()').extract_first().strip()
-        namenum = productName.rfind(' 期货 合约规格')
+
+        namenum = productName.rfind('合约规格——芝商所')
         if namenum > 0:
             item['productName'] = productName[:namenum]
         else:
@@ -88,15 +115,36 @@ class futuresexchangeinformation(scrapy.Spider):
             if list.get('报价') != None and list.get('报价') != '':
                 item['PriceQuotation'] = list['报价']
                 crawler.info('报价:%s', item['PriceQuotation'])
+            elif list.get('定价单位') != None and list.get('定价单位') != '':
+                item['PriceQuotation'] = list['定价单位']
+                crawler.info('定价单位:%s', item['PriceQuotation'])
             if list.get('交易时间') != None and list.get('交易时间') != '':
                 item['TradingHours'] = list['交易时间']
                 crawler.info('交易时间:%s', item['TradingHours'])
             if list.get('最小变动价位') != None and list.get('最小变动价位') != '':
                 item['MinimumPriceFluctuation'] = list['最小变动价位']
                 crawler.info('最小变动价位:%s', item['MinimumPriceFluctuation'])
+            elif list.get('最小价格波幅') != None and list.get('最小价格波幅') != '':
+                item['MinimumPriceFluctuation'] = list['最小价格波幅']
+                crawler.info('最小价格波幅:%s', item['MinimumPriceFluctuation'])
             if list.get('产品代码') != None and list.get('产品代码') != '':
-                item['ProductCode'] = list['产品代码']
+                num = -1
+                if list['产品代码'].rfind('：') > 0:
+                    num = list['产品代码'].rfind('：') + 1
+                elif list['产品代码'].rfind(':') > 0:
+                    num = list['产品代码'].rfind(':') + 1
+                item['ProductCode'] = list['产品代码'][num:].strip()
                 crawler.info('产品代码:%s', item['ProductCode'])
+            elif list.get('商品代码') != None and list.get('商品代码') != '':
+                num = -1
+                if list['商品代码'].rfind('：') > 0:
+                    num = list['商品代码'].rfind('：') + 1
+                elif list['商品代码'].rfind(':') > 0:
+                    num = list['商品代码'].rfind(':') + 1
+                elif list['商品代码'].rfind('： ') > 0:
+                    num = list['商品代码'].rfind('： ') + 1
+                item['ProductCode'] = list['商品代码'][num:]
+                crawler.info('商品代码:%s', item['ProductCode'])
             if list.get('上市合约') != None and list.get('上市合约') != '':
                 item['ListedContracts'] = list['上市合约']
                 crawler.info('上市合约:%s', item['ListedContracts'])
@@ -118,7 +166,7 @@ class futuresexchangeinformation(scrapy.Spider):
             if list.get('交易规则手册') != None and list.get('交易规则手册') != '':
                 item['ExchangeRulebook'] = list['交易规则手册']
                 crawler.info('交易规则手册:%s', item['ExchangeRulebook'])
-            if list.get('交易所规则手册') != None and list.get('交易所规则手册') != '':
+            elif list.get('交易所规则手册') != None and list.get('交易所规则手册') != '':
                 item['ExchangeRulebook'] = list['交易所规则手册']
                 crawler.info('交易所规则手册:%s', item['ExchangeRulebook'])
             if list.get('整批委托最低额') != None and list.get('整批委托最低额') != '':
