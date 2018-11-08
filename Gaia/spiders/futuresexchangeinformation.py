@@ -43,23 +43,23 @@ class futuresexchangeinformation(scrapy.Spider):
     def parse_futures(self, response):
         contentaAll = json.loads(response.text)
         for each in contentaAll:
-            item = FuturesExchangeItem()
-            item['productId'] = each['productId']
-            crawler.info('productId:%s', item['productId'])
-            item['productName'] = each['productName']
-            crawler.info('productName:%s', item['productName'])
-            item['productCode'] = each['productCode']
-            crawler.info('productCode:%s', item['productCode'])
-            item['uri'] = each['uri']
-            crawler.info('uri:%s', item['uri'])
-            item['exchangeCode'] = each['exchangeCode']
-            crawler.info('exchangeCode:%s', item['exchangeCode'])
-            item['datasource'] = '芝商所'
-            crawler.info('datasource:%s', item['datasource'])
+            # item = FuturesExchangeItem()
+            # item['productId'] = each['productId']
+            # crawler.info('productId:%s', item['productId'])
+            # item['productName'] = each['productName']
+            # crawler.info('productName:%s', item['productName'])
+            # item['productCode'] = each['productCode']
+            # crawler.info('productCode:%s', item['productCode'])
+            # item['uri'] = each['uri']
+            # crawler.info('uri:%s', item['uri'])
+            # item['exchangeCode'] = each['exchangeCode']
+            # crawler.info('exchangeCode:%s', item['exchangeCode'])
+            # item['datasource'] = '芝商所'
+            # crawler.info('datasource:%s', item['datasource'])
             self.eachuri = each['uri'][:each['uri'].rfind('.')]
-            url = self.pre + self.eachuri + self.suf
+            url = self.pre + '/cn-s' + self.eachuri + self.suf
             yield scrapy.Request(url=url, callback=self.parse_contract_specifications, dont_filter=True)
-            yield item
+            # yield item
 
     def parse_contract_specifications(self, response):
         trs = response.xpath('.//tr')
@@ -72,54 +72,67 @@ class futuresexchangeinformation(scrapy.Spider):
             else:
                 list[trtext] = tr.xpath('.//td[2]/text()').extract_first().strip()
         item = ContractSpecificationsItem()
-
-        item['productName'] = response.xpath('.//head/title/text()').extract_first().strip()
+        item['datasource'] = '芝商所'
+        crawler.info('来源:%s', item['datasource'])
+        productName = response.xpath('.//head/title/text()').extract_first().strip()
+        namenum = productName.rfind(' 期货 合约规格')
+        if namenum > 0:
+            item['productName'] = productName[:namenum]
+        else:
+            item['productName'] = productName
         crawler.info('productName:%s', item['productName'])
-        if list.get('Contract Unit') != None and list.get('Contract Unit') != '':
-            item['ContractUnit'] = list['Contract Unit']
-            crawler.info('ContractUnit:%s', item['ContractUnit'])
-        if list.get('Price Quotation') != None and list.get('Price Quotation') != '':
-            item['PriceQuotation'] = list['Price Quotation']
-            crawler.info('PriceQuotation:%s', item['PriceQuotation'])
-        if list.get('Trading Hours') != None and list.get('Trading Hours') != '':
-            item['TradingHours'] = list['Trading Hours']
-            crawler.info('TradingHours:%s', item['TradingHours'])
-        if list.get('Minimum Price Fluctuation') != None and list.get('Minimum Price Fluctuation') != '':
-            item['MinimumPriceFluctuation'] = list['Minimum Price Fluctuation']
-            crawler.info('MinimumPriceFluctuation:%s', item['MinimumPriceFluctuation'])
-        if list.get('Product Code') != None and list.get('Product Code') != '':
-            item['ProductCode'] = list['Product Code']
-            crawler.info('ProductCode:%s', item['ProductCode'])
-        if list.get('Listed Contracts') != None and list.get('Listed Contracts') != '':
-            item['ListedContracts'] = list['Listed Contracts']
-            crawler.info('ListedContracts:%s', item['ListedContracts'])
-        if list.get('Settlement Method') != None and list.get('Settlement Method') != '':
-            item['SettlementMethod'] = list['Settlement Method']
-            crawler.info('SettlementMethod:%s', item['SettlementMethod'])
-        if list.get('Termination Of Trading') != None and list.get('Termination Of Trading') != '':
-            item['TerminationOfTrading'] = list['Termination Of Trading']
-            crawler.info('TerminationOfTrading:%s', item['TerminationOfTrading'])
-        if list.get('Trade At Marker Or Trade At Settlement Rules') != None and list.get('Trade At Marker Or Trade At Settlement Rules') != '':
-            item['TradeAtMarkerOrTradeAtSettlementRules'] = list['Trade At Marker Or Trade At Settlement Rules']
-            crawler.info('TradeAtMarkerOrTradeAtSettlementRules:%s', item['TradeAtMarkerOrTradeAtSettlementRules'])
-        if list.get('Settlement Procedures') != None and list.get('Settlement Procedures') != '':
-            item['SettlementProcedures'] = list['Settlement Procedures']
-            crawler.info('SettlementProcedures:%s', item['SettlementProcedures'])
-        if list.get('Position Limits') != None and list.get('Position Limits') != '':
-            item['PositionLimits'] = list['Position Limits']
-            crawler.info('PositionLimits:%s', item['PositionLimits'])
-        if list.get('Exchange Rulebook') != None and list.get('Exchange Rulebook') != '':
-            item['ExchangeRulebook'] = list['Exchange Rulebook']
-            crawler.info('ExchangeRulebook:%s', item['ExchangeRulebook'])
-        if list.get('Block Minimum') != None and list.get('Block Minimum') != '':
-            item['BlockMinimum'] = list['Block Minimum']
-            crawler.info('BlockMinimum:%s', item['BlockMinimum'])
-        if list.get('Price Limit Or Circuit') != None and list.get('Price Limit Or Circuit') != '':
-            item['PriceLimitOrCircuit'] = list['Price Limit Or Circuit']
-            crawler.info('PriceLimitOrCircuit:%s', item['PriceLimitOrCircuit'])
-        if list.get('Vendor Codes') != None and list.get('Vendor Codes') != '':
-            item['VendorCodes'] = list['Vendor Codes']
-            crawler.info('VendorCodes:%s', item['VendorCodes'])
+        try:
+            if list.get('合约规模') != None and list.get('合约规模') != '':
+                item['ContractUnit'] = list['合约规模']
+                crawler.info('合约规模:%s', item['ContractUnit'])
+            if list.get('报价') != None and list.get('报价') != '':
+                item['PriceQuotation'] = list['报价']
+                crawler.info('报价:%s', item['PriceQuotation'])
+            if list.get('交易时间') != None and list.get('交易时间') != '':
+                item['TradingHours'] = list['交易时间']
+                crawler.info('交易时间:%s', item['TradingHours'])
+            if list.get('最小变动价位') != None and list.get('最小变动价位') != '':
+                item['MinimumPriceFluctuation'] = list['最小变动价位']
+                crawler.info('最小变动价位:%s', item['MinimumPriceFluctuation'])
+            if list.get('产品代码') != None and list.get('产品代码') != '':
+                item['ProductCode'] = list['产品代码']
+                crawler.info('产品代码:%s', item['ProductCode'])
+            if list.get('上市合约') != None and list.get('上市合约') != '':
+                item['ListedContracts'] = list['上市合约']
+                crawler.info('上市合约:%s', item['ListedContracts'])
+            if list.get('结算方法') != None and list.get('结算方法') != '':
+                item['SettlementMethod'] = list['结算方法']
+                crawler.info('结算方法:%s', item['SettlementMethod'])
+            if list.get('交易终止') != None and list.get('交易终止') != '':
+                item['TerminationOfTrading'] = list['交易终止']
+                crawler.info('交易终止:%s', item['TerminationOfTrading'])
+            if list.get('以市价或以结算价交易规则交易') != None and list.get('以市价或以结算价交易规则交易') != '':
+                item['TradeAtMarkerOrTradeAtSettlementRules'] = list['以市价或以结算价交易规则交易']
+                crawler.info('以市价或以结算价交易规则交易:%s', item['TradeAtMarkerOrTradeAtSettlementRules'])
+            if list.get('结算程序') != None and list.get('结算程序') != '':
+                item['SettlementProcedures'] = list['结算程序']
+                crawler.info('结算程序:%s', item['SettlementProcedures'])
+            if list.get('头寸限制') != None and list.get('头寸限制') != '':
+                item['PositionLimits'] = list['头寸限制']
+                crawler.info('头寸限制:%s', item['PositionLimits'])
+            if list.get('交易规则手册') != None and list.get('交易规则手册') != '':
+                item['ExchangeRulebook'] = list['交易规则手册']
+                crawler.info('交易规则手册:%s', item['ExchangeRulebook'])
+            if list.get('交易所规则手册') != None and list.get('交易所规则手册') != '':
+                item['ExchangeRulebook'] = list['交易所规则手册']
+                crawler.info('交易所规则手册:%s', item['ExchangeRulebook'])
+            if list.get('整批委托最低额') != None and list.get('整批委托最低额') != '':
+                item['BlockMinimum'] = list['整批委托最低额']
+                crawler.info('整批委托最低额:%s', item['BlockMinimum'])
+            if list.get('价格限制或熔断') != None and list.get('价格限制或熔断') != '':
+                item['PriceLimitOrCircuit'] = list['价格限制或熔断']
+                crawler.info('价格限制或熔断:%s', item['PriceLimitOrCircuit'])
+            if list.get('供应商报价代码') != None and list.get('供应商报价代码') != '':
+                item['VendorCodes'] = list['供应商报价代码']
+                crawler.info('供应商报价代码:%s', item['VendorCodes'])
+
+        except Exception as e:
+            print(e)
         yield item
 
     def worker_main(self):

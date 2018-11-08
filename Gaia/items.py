@@ -112,6 +112,7 @@ class FuturesExchangeItem(Item):
     datasource = Field()
 
 class ContractSpecificationsItem(Item):
+    datasource = Field()
     productName = Field()
     ContractUnit = Field()
     PriceQuotation = Field()
