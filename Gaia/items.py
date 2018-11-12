@@ -96,6 +96,15 @@ class NewsItem(Item):
     time = Field()
     localtime = Field()
 
+class StockNewsItem(Item):
+    datasource = Field()
+    arttitle = Field()
+    arturl = Field()
+    artcreateTime = Field()
+    artcontent = Field()
+    localtime = Field()
+    stockname = Field()
+
 class QQFinanceItem(Item):
     _id = Field()
     imgscr = Field()
@@ -129,11 +138,4 @@ class ContractSpecificationsItem(Item):
     BlockMinimum = Field()
     PriceLimitOrCircuit = Field()
     VendorCodes = Field()
-
-
-
-
-
-
-
 
