@@ -139,3 +139,12 @@ class ContractSpecificationsItem(Item):
     PriceLimitOrCircuit = Field()
     VendorCodes = Field()
 
+class WorldFinanceItem(Item):
+    datasource = Field()
+    title = Field()
+    url = Field()
+    imagescr = Field()
+    simdigest = Field()
+    abouttime = Field()
+
+
