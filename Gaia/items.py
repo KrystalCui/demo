@@ -147,4 +147,50 @@ class WorldFinanceItem(Item):
     simdigest = Field()
     abouttime = Field()
 
+class DalianCommodityExchangeItem(Item):
+    datasource = Field()
+    #交易品种
+    tradingvariety = Field()
+    #交易单位
+    tradingunit = Field()
+    #报价单位
+    quotationunit = Field()
+    #最小变动价位
+    minimumpricechange = Field()
+    #涨跌停板幅度
+    pricelimits = Field()
+    #合约月份
+    contractmonth = Field()
+    #交易时间
+    tradingtime = Field()
+    #最后交易日
+    lastNoticeDay = Field()
+    #最后交割日
+    finaldeliverydate = Field()
+    #交割等级
+    deliveryGrade = Field()
+    #交割地点
+    deliverypoints = Field()
+    #最低交易保证金
+    minimumtransactionmargin = Field()
+    #交割方式
+    deliverymethods = Field()
+    #交易代码
+    transactioncode = Field()
+    #上市交易所
+    listingexchange = Field()
+    #容重
+    bulkdensity = Field()
+    #总量
+    total = Field()
+    #项目
+    project = Field()
+
+
+
+
+
+
+
+
 
