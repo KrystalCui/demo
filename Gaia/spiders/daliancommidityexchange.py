@@ -32,8 +32,6 @@ class daliancommodityexchange(scrapy.Spider):
     def parse_daliancode(self,response):#.//div[@id="list_type"]/div/div[2]/ul/li[1]/a/@href
         try:
             ahref = response.xpath('.//div[@id="list_type"]/div/div[2]/ul/li[1]/a/@href').extract_first()
-            if ahref =='/dalianshangpin/sspz/ym/hyygz/486238/index.html':
-                print("去打断点")
             url = self.urlpre + ahref
             # print('parse_daliancode  url :%s'%url)
             yield scrapy.Request(url=url, callback=self.parse_daliancodedetails, headers=self.headers, dont_filter=True)
@@ -70,7 +68,6 @@ class daliancommodityexchange(scrapy.Spider):
                         list[textstr] = td2.xpath('.//text()').extract_first().strip()
         except Exception as e:
             print(e)
-        print(list)
         item = DalianCommodityExchangeItem()
         item['datasource'] = '大连商品交易所'
         try:

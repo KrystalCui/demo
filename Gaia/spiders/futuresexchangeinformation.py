@@ -58,19 +58,6 @@ class futuresexchangeinformation(scrapy.Spider):
     def parse_contract_specifications(self, response):
         trs = response.xpath('.//tr')
         list = {}
-        if response.xpath('.//head/title/text()').extract_first().rfind('铜期货及期权') > 0:
-            print('aaaaa')
-            print('看交易时间')
-        if response.xpath('.//head/title/text()').extract_first().rfind('（WTI）原油期货') > 0:
-            print('aaaaa')
-            print('看交易时间')
-        if response.xpath('.//head/title/text()').extract_first().rfind('活牛期货') > 0:
-            print('aaaaa')
-            print('看交易时间')
-        if response.xpath('.//head/title/text()').extract_first().rfind('Argus Propane Far East Index 期货 合约规格 - CME 组') > 0:
-            print('aaaaa')
-            print('看交易时间')
-        # time_flag = False
         for tr in trs:
             trtext = ''
             if tr.xpath('.//td[1]/p/text()').extract_first() != None:
@@ -189,7 +176,4 @@ class futuresexchangeinformation(scrapy.Spider):
             job_func()
 
 if __name__ == '__main__':
-    # fu = futuresexchangeinformation()
-    # schedule.every(5).seconds.do(fu.jobqueue, fu.start_requests)
-
     cmdline.execute("scrapy crawl FuturesExchangeSpider".split())
