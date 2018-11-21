@@ -3,7 +3,7 @@ import scrapy
 from scrapy import cmdline
 import json
 from Gaia.logger import crawler
-from Gaia.items import DalianCommodityExchangeItem
+from Gaia.items import DomesticCommodityExchangeItem
 
 class daliancommodityexchange(scrapy.Spider):
     name = "DaLianCommodityExchangeSpider"
@@ -68,7 +68,7 @@ class daliancommodityexchange(scrapy.Spider):
                         list[textstr] = td2.xpath('.//text()').extract_first().strip()
         except Exception as e:
             print(e)
-        item = DalianCommodityExchangeItem()
+        item = DomesticCommodityExchangeItem()
         item['datasource'] = '大连商品交易所'
         try:
             if list.get('交易品种') != None and list.get('交易品种') != '':

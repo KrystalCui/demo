@@ -147,7 +147,7 @@ class WorldFinanceItem(Item):
     simdigest = Field()
     abouttime = Field()
 
-class DalianCommodityExchangeItem(Item):
+class DomesticCommodityExchangeItem(Item):
     datasource = Field()
     #交易品种
     tradingvariety = Field()
