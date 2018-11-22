@@ -185,6 +185,18 @@ class DomesticCommodityExchangeItem(Item):
     total = Field()
     #项目
     project = Field()
+    #可交割国债
+    deliverablenationaldebt = Field()
+    #报价方式
+    quotationmethod = Field()
+    #交割日期
+    deliverydate = Field()
+    #最后交易日交易时间
+    lasttradingdaytradingtime = Field()
+
+
+
+
 
 
 
