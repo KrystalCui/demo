@@ -3,7 +3,6 @@ from scrapy import cmdline
 from Gaia.items import DomesticCommodityExchangeItem
 from Gaia.logger import crawler
 
-
 class chinafinancial(scrapy.Spider):
     name = 'chinafinancialspider'
 
@@ -22,7 +21,6 @@ class chinafinancial(scrapy.Spider):
                 href = a.xpath('@href').extract_first()
                 url = self.urlpre + href
                 yield scrapy.Request(url=url, callback=self.parse_chinafinancialF10, dont_filter=True)
-
 
     def parse_chinafinancialF10(self, response):
         trs = response.xpath('.//div[@class="table_introduction debt_table_introduction"]/table/tbody/tr')
@@ -105,16 +103,9 @@ class chinafinancial(scrapy.Spider):
                 item['lasttradingdaytradingtime'] = list['最后交易日交易时间']
                 crawler.info('最后交易日交易时间:%s', item['lasttradingdaytradingtime'])
 
-
         except Exception as e:
             print(e)
-        print('item:::::',item)
         yield item
-
-
-
-
 
 if __name__ == "__main__":
     cmdline.execute("scrapy crawl chinafinancialspider".split())
-#print('aaaa')
