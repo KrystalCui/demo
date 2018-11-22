@@ -130,7 +130,5 @@ class daliancommodityexchange(scrapy.Spider):
             print(e)
         yield item
 
-
-
 if __name__=="__main__":
     cmdline.execute("scrapy crawl DaLianCommodityExchangeSpider".split())
