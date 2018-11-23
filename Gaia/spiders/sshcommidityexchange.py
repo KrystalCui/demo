@@ -154,9 +154,7 @@ class sshcommidityexchange(unittest.TestCase):
                 self.server.hset(hkey, variety, variety)
                 self.db['contractF10_domestic'].insert_one(dict(item))
         except Exception as e:
-            print(e)
-
-
+            print('当前错误信息：',e)
 
 if __name__=="__main__":
     unittest.main()
