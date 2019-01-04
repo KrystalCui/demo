@@ -17,7 +17,8 @@ class SevenTwentyFourNewsSchedule:
         pool = redis.ConnectionPool(
             host=redis_args.get('host')
             , port=redis_args.get('port')
-            , db=redis_args.get('id_name'))
+            , db=redis_args.get('id_name')
+            , password=redis_args.get('password'))
         self.server = redis.Redis(connection_pool=pool)
 
         uri = "mongodb://{}:{}@{}:{}/{}".format(quote_plus(mongo_db_args.get('user')),
