@@ -54,8 +54,9 @@ class EastMoneyNewsSpider(scrapy.Spider):
                     if not os.path.isdir(self.strwd):
                         os.mkdir('image')
                     namenum = item['imagescr'].rfind('/') + 1
-                    self.name = item['imagescr'][namenum:]
-                    urllib.request.urlretrieve(item['imagescr'], self.strwd + '\\' + self.name)
+                    self.namescr = imagescr[namenum:]
+                    self.namescr = item['imagescr'][namenum:]
+                    urllib.request.urlretrieve(item['imagescr'], self.strwd + '\\' + self.namescr)
                     text = gaia_upload_u('http://gress.gaiafintech.com/upload', imagescr)
                     jsontext = json.loads(text)
                     dfilesjson = jsontext['dfiles']

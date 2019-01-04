@@ -4,6 +4,9 @@ import pymongo
 import redis
 from urllib.parse import quote_plus
 import time
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 import unittest
 import urllib
 from bs4 import BeautifulSoup
@@ -41,22 +44,25 @@ class sshcommidityexchange(unittest.TestCase):
         #打开对应网页
         driver.get(self.url)
         # 加载3秒，等待所有数据加载完毕
-        time.sleep(2)
-        #使用assert断言的方法判断在页面标题中是否包含 “Python”，assert 语句将会在之后的语句返回false后抛出异常
-        #self.assertIn("ul", driver.title)
-        #获取到id为subnav的ul，也就是最外层的ul
-        elemul = driver.find_element_by_id('subnav')#.text
-        #此处用的是elements！返回的是list，此层获取到的是金属，能源等的列表
-        elemlis_first = elemul.find_elements_by_xpath('.//li[2]/ul/li')
-        for elemli_first in elemlis_first:
-            #将每一个li打开，里面还有一层ul，此处为铜铝等详细列表
-            elemlis_second = elemli_first.find_elements_by_xpath('.//ul/li')
-            for elemli_second in elemlis_second:
-                #selenium获取a的href需要get_attribute方法
-                href = elemli_second.find_element_by_tag_name('a').get_attribute('href')#.click()
-                self.hreflist.append(href)
-        self.parse_code()
-        self.driver.quit()
+        try:
+            elemul = WebDriverWait(driver, 3).until(EC.presence_of_element_located((By.ID,"subnav")))
+            # time.sleep(2)
+            # 使用assert断言的方法判断在页面标题中是否包含 “Python”，assert 语句将会在之后的语句返回false后抛出异常
+            # self.assertIn("ul", driver.title)
+            # 获取到id为subnav的ul，也就是最外层的ul
+            # elemul = driver.find_element_by_id('subnav')#.text
+            # 此处用的是elements！返回的是list，此层获取到的是金属，能源等的列表
+            elemlis_first = elemul.find_elements_by_xpath('.//li[2]/ul/li')
+            for elemli_first in elemlis_first:
+                # 将每一个li打开，里面还有一层ul，此处为铜铝等详细列表
+                elemlis_second = elemli_first.find_elements_by_xpath('.//ul/li')
+                for elemli_second in elemlis_second:
+                    # selenium获取a的href需要get_attribute方法
+                    href = elemli_second.find_element_by_tag_name('a').get_attribute('href')  # .click()
+                    self.hreflist.append(href)
+        finally:
+            self.parse_code()
+            self.driver.quit()
 
     def parse_code(self):
         for href in self.hreflist:

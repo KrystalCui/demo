@@ -50,9 +50,9 @@ mongodb:
     db_name: gaiaspider
 
 redis:
-    host: 192.168.88.103
-    port: 3308
-    password:
+    host: 192.168.88.105
+    port: 6379
+    password: gaiaspider
     cookies: 1                   # store and fetch cookies
     # store fetched urls and results,so you can decide whether retry to crawl the urls or not
     urls: 2
