@@ -49,7 +49,7 @@ class SinaFinanceNews(scrapy.Spider, Process):
 
         # self.listdict = deque([])
 
-        self.pool = mp.Pool(4)
+        # self.pool = mp.Pool(4)
         self.header = {
             'User-Agent': 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.119 Safari/537.36'}
         self.url = 'http://finance.sina.com.cn/roll/index.d.html?cid=56995&page={}'
@@ -155,8 +155,6 @@ class SinaFinanceNews(scrapy.Spider, Process):
         # print(content)
 
         item = InformationAggregationItem()
-        if content == '':
-            a = 1
         item['content'] = content
         crawler.info("content:%s", content)
         #此处标题,摘要,子标题相同

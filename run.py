@@ -22,6 +22,9 @@ def runseventwentyfournewsschedule():
 def runsinafinacen():
     subprocess.Popen("scrapy crawl SinaFinanceNewsSpider")
 
+def runeastmoney():
+    subprocess.Popen("scrapy crawl EastMoneyNewsSpider")
+
 if __name__ == '__main__':
     # cmdline.execute("scrapy crawl SinaFinanceNewsSpider".split())
     # spro = scrapypro()
@@ -33,7 +36,9 @@ if __name__ == '__main__':
     # runseventwentyfournewsschedule()
     subprocess.Popen("scrapy crawl EastMoneyNewsSpider")
     subprocess.Popen("scrapy crawl SinaFinanceNewsSpider")
-    schedule.every(1).minutes.do(runsinafinacen)
+    subprocess.Popen("scrapy crawl EastMoneyNewsSpider")
+    schedule.every(20).minutes.do(runsinafinacen)
+    schedule.every(20).minutes.do(runeastmoney)
     # schedule.every(5).seconds.do(runseventwentyfournewsschedule)
     schedule.every(600).seconds.do(run)
     # subprocess.Popen("scrapy crawl SinaFinanceNewsSpider")
