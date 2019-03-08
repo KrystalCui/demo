@@ -49,8 +49,8 @@ class SevenTwentyFourNewsSchedule:
             crawler.info('showtime:%s', item['showtime'])
             item['ordertime'] = each['ordertime']
             crawler.info('ordertime:%s', item['ordertime'])
-            item['_id'] = each['id']
-            crawler.info('_id:%s', item['_id'])
+            # item['_id'] = each['id']
+            # crawler.info('_id:%s', item['_id'])
             item['commentnum'] = each['commentnum']
             crawler.info('commentnum:%s', item['commentnum'])
             if each['digest'] == None or each['digest'] =='':
@@ -65,9 +65,9 @@ class SevenTwentyFourNewsSchedule:
             crawler.info('simdigest:%s', item['simdigest'])
             hkey = "seventwentyfournews_filter"
             try:
-                _id = item['_id']
-                if self.server.hget(hkey, _id) is None:
-                    self.server.hset(hkey, _id, _id)
+                title = item['title']
+                if self.server.hget(hkey, title) is None:
+                    self.server.hset(hkey, title, title)
                     self.db['seventwentyfournews'].insert_one(dict(item))
             except :
                 continue

@@ -79,12 +79,14 @@ class SevenTwentyFourNewsItem(Item):
     url = Field()#即将跳转的网页
     commentnum = Field()
 
+#新浪财经
 class SinaFinanceNewsItem(Item):
     time = Field()
     title = Field()
     url = Field()
     page = Field()
 
+#东方财富
 class NewsItem(Item):
     datasource = Field()
     imageurl = Field()  #点击图片后跳转的链接
@@ -105,6 +107,7 @@ class StockNewsItem(Item):
     localtime = Field()
     stockname = Field()
 
+#腾讯财经
 class QQFinanceItem(Item):
     _id = Field()
     imgscr = Field()
@@ -194,6 +197,30 @@ class DomesticCommodityExchangeItem(Item):
     #最后交易日交易时间
     lasttradingdaytradingtime = Field()
 
+#新浪,东财等资讯合集
+class InformationAggregationItem(Item):
+    # 摘要
+    abstract = Field()
+    # 内容
+    content = Field()
+    # 获取来源(如新浪,东财等)
+    datasource = Field()
+    # id
+    id = Field()
+    # 图片URL
+    imgURL = Field()
+    # 作者
+    newsauth = Field()
+    # 时间
+    newstime = Field()
+    # 页面中显示来源
+    source = Field()
+    # 状态
+    state = Field()
+    # 子标题
+    subtitle = Field()
+    # 标题
+    title = Field()
 
 
 
