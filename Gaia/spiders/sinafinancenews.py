@@ -72,7 +72,7 @@ class SinaFinanceNews(scrapy.Spider, Process):
             # crawler.info(a.xpath('a/@href').extract())
             for j in range(1,6,1):
                 #根据当前页面的显示创建字典,主要是为了将内容的url与标题信息等匹配存储在全部信息获取到后添加数据库
-                dict = {}
+                dic = {}
                 stra = str(j)
                 strs = '[' + stra + ']'
                 #信息列表页面标题,摘要,子标题与此相同
@@ -82,16 +82,16 @@ class SinaFinanceNews(scrapy.Spider, Process):
                     # 先与redis内容进行比较,避免浪费
                     hkey = "informationaggregation_filter"
                     if self.server.hget(hkey,title) is None:
-                        dict['title'] = title
+                        dic['title'] = title
                         #信息列表页面时间
-                        dict['newstime'] = ul.xpath('.//li' + strs + '/span/text()').extract_first()
+                        dic['newstime'] = ul.xpath('.//li' + strs + '/span/text()').extract_first()
                         #内容url
-                        dict['contenurl'] = ul.xpath('.//li' + strs + '/a/@href').extract_first()
+                        dic['contenurl'] = ul.xpath('.//li' + strs + '/a/@href').extract_first()
                         #将信息列表页面的信息存入
                         # self.listdict.append(dict)
                         # print(dict['contenurl'])
                         time.sleep(1)
-                        yield scrapy.Request(url=dict['contenurl'], meta={'item': dict}, callback=self.parse_getcontent,
+                        yield scrapy.Request(url=dic['contenurl'], meta={'item': dic}, callback=self.parse_getcontent,
                                                      dont_filter=True, headers=self.header)
                         # tup = (dict, dict['contenurl'],)
 
