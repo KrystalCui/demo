@@ -13,7 +13,7 @@ from scrapy import cmdline
 import time
 import redis
 import pymongo
-from urllib.parse import quote_plus as pl
+from urllib.parse import quote_plus as ql
 from Gaia.config import *
 
 
@@ -34,8 +34,8 @@ class EastMoneyNewsSpider(scrapy.Spider, Process):
 
         # mongodb
         uri = 'mongodb://{}:{}@{}:{}/{}'.format(
-            pl(mongodb_args.get('user')),
-            pl(mongodb_args.get('password')),
+            ql(mongodb_args.get('user')),
+            ql(mongodb_args.get('password')),
             mongodb_args.get('host'),
             mongodb_args.get('port'),
             mongodb_args.get('db_name')
@@ -174,7 +174,7 @@ class EastMoneyNewsSpider(scrapy.Spider, Process):
         try:
             if self.server.hget(hkey, title) is None:
                 self.server.hset(hkey, title, title)
-                self.db['informationaggregation'].insert_one(dic(item))
+                self.db['informationaggregation'].insert_one(dict(item))
         except Exception as e:
             crawler.into("本次东方财富存入失败原因:%s", e)
         # item['titletext'] = li.xpath('.//p[@class="title"]/a/text()').extract_first().strip()

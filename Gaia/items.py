@@ -206,7 +206,7 @@ class InformationAggregationItem(Item):
     # 获取来源(如新浪,东财等)
     datasource = Field()
     # id
-    id = Field()
+    _id = Field()
     # 图片URL
     imgURL = Field()
     # 作者

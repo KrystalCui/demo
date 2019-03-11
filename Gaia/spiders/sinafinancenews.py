@@ -45,7 +45,12 @@ class SinaFinanceNews(scrapy.Spider, Process):
         crawler.info("db: %s", mongodb_args.get('db_name'))
 
         connection = pymongo.MongoClient(uri)
+        # connection = pymongo.MongoClient(user=pl(mongodb_args.get('user')),
+        #                                  password=pl(mongodb_args.get('password')),
+        #                                  host=mongodb_args.get('host'),
+        #                                  port=mongodb_args.get('port'))
         self.db = connection[mongodb_args.get('db_name')]
+        print(self.db)
 
         # self.listdict = deque([])
 
@@ -55,7 +60,7 @@ class SinaFinanceNews(scrapy.Spider, Process):
         self.url = 'http://finance.sina.com.cn/roll/index.d.html?cid=56995&page={}'
 
     def start_requests(self):
-        for i in range(1,23,1):
+        for i in range(22,0,-1):
             url = self.url.format(i)
             yield scrapy.Request(url=url, callback=self.parse_fromlist, dont_filter = True, headers=self.header)
 
@@ -122,7 +127,7 @@ class SinaFinanceNews(scrapy.Spider, Process):
     # @staticmethod
     def parse_getcontent(self,response):
         # time.sleep(1)
-        dict = response.meta['item']
+        dic = response.meta['item']
         div = response.xpath('.//div[@class="article"]')
         ps = div.xpath('.//p')
         if ps == [] :
@@ -158,7 +163,7 @@ class SinaFinanceNews(scrapy.Spider, Process):
         item['content'] = content
         crawler.info("content:%s", content)
         #此处标题,摘要,子标题相同
-        title = dict['title']
+        title = dic['title']
         item['title'] = title
         crawler.info("title:%s", title)
         item['abstract'] = title
@@ -167,7 +172,7 @@ class SinaFinanceNews(scrapy.Spider, Process):
         crawler.info("subtitle:%s", title)
         item['state'] = 0
         crawler.info("state:%s", item['state'])
-        item['newstime'] = dict['newstime']
+        item['newstime'] = dic['newstime']
         crawler.info("newstime:%s", item['newstime'])
         item['datasource'] = '新浪财经'
         crawler.info("datasource:%s", item['datasource'])
@@ -176,7 +181,7 @@ class SinaFinanceNews(scrapy.Spider, Process):
         try:
             if self.server.hget(hkey, title) is None:
                 self.server.hset(hkey, title, title)
-                self.db['informationaggregation'].insert_one(dict(item))
+                self.db['informationaggregation'].insert(dict(item))
         except Exception as e:
             crawler.into("本次新浪财经存入失败原因:%s", e)
 
