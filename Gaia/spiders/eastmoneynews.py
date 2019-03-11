@@ -49,11 +49,12 @@ class EastMoneyNewsSpider(scrapy.Spider, Process):
         # self.pool = mp.Pool(4)
         self.url = 'http://futures.eastmoney.com/a/cqhdd_{}.html'
         self.ISOTIMEFORMAT = '%Y-%m-%d %X'
+        self.header = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36'}
 
     def start_requests(self):
         for i in range(25, 0, -1):
             url = self.url.format(i)
-            yield scrapy.Request(url=url, callback= self.parse_easymoneyinvestment, dont_filter = True)
+            yield scrapy.Request(url=url, callback= self.parse_easymoneyinvestment, dont_filter = True, headers=self.header)
 
     def parse_easymoneyinvestment(self, response):
         uls = response.xpath('.//ul[@id="newsListContent"]')
@@ -99,7 +100,7 @@ class EastMoneyNewsSpider(scrapy.Spider, Process):
                             continue
 
                         yield scrapy.Request(url=dict['contenturl'], callback=self.parse_getcontent, dont_filter=True,
-                                             meta={'item': dict})
+                                             meta={'item': dict, 'itemB': 1}, headers=self.header)
                 except Exception as e:
                     crawler.info('当前位置错误: %s', e)
                 # try:
@@ -149,34 +150,40 @@ class EastMoneyNewsSpider(scrapy.Spider, Process):
                         textnum = str.rfind('：') + 1
                         item['newsauth'] = str[textnum:len(str) - 1]
                         str = ''
-                except:
-                    a = 1
+                except Exception as e:
+                    crawler.info("当前位置错误:%s", e)
                 if not str == '':
                     content += str + "\r\n"
-        item['imgURL'] = dic['imgURL']
-        crawler.info("imgURL:%s", item['imgURL'])
-        item['content'] = content
-        crawler.info("content:%s", content)
-        title = dic['title']
-        item['title'] = title
-        crawler.info("title:%s", dic['title'])
-        item['abstract'] = dic['abstract']
-        crawler.info("abstract:%s", dic['abstract'])
-        item['subtitle'] = title
-        crawler.info("subtitle:%s", title)
-        item['state'] = 0
-        crawler.info("state:%s", item['state'])
-        item['newstime'] = dic['newstime']
-        crawler.info("newstime:%s", item['newstime'])
-        item['datasource'] = '东方财富'
-        crawler.info("datasource:%s", item['datasource'])
-        hkey = "informationaggregation_filter"
-        try:
-            if self.server.hget(hkey, title) is None:
-                self.server.hset(hkey, title, title)
-                self.db['informationaggregation'].insert_one(dict(item))
-        except Exception as e:
-            crawler.into("本次东方财富存入失败原因:%s", e)
+        if content == '':
+            timesNum = response.meta['itemB']
+            if timesNum < 3:
+                timesNum += 1
+                yield scrapy.Request(url=response.url, callback=self.parse_getcontent, meta={'item': dic, 'itemB': timesNum}, dont_filter=True, headers=self.header)
+        else:
+            item['imgURL'] = dic['imgURL']
+            crawler.info("imgURL:%s", item['imgURL'])
+            item['content'] = content
+            crawler.info("content:%s", content)
+            title = dic['title']
+            item['title'] = title
+            crawler.info("title:%s", dic['title'])
+            item['abstract'] = dic['abstract']
+            crawler.info("abstract:%s", dic['abstract'])
+            item['subtitle'] = title
+            crawler.info("subtitle:%s", title)
+            item['state'] = 0
+            crawler.info("state:%s", item['state'])
+            item['newstime'] = dic['newstime']
+            crawler.info("newstime:%s", item['newstime'])
+            item['datasource'] = '东方财富'
+            crawler.info("datasource:%s", item['datasource'])
+            hkey = "informationaggregation_filter"
+            try:
+                if self.server.hget(hkey, title) is None:
+                    self.server.hset(hkey, title, title)
+                    self.db['informationaggregation'].insert_one(dict(item))
+            except Exception as e:
+                crawler.into("本次东方财富存入失败原因:%s", e)
         # item['titletext'] = li.xpath('.//p[@class="title"]/a/text()').extract_first().strip()
         # crawler.info('titletext : %s', item['titletext'])
 
@@ -250,7 +257,7 @@ class EastMoneyNewsSpider(scrapy.Spider, Process):
         #     #data = {'enctype': 'multipart/form-data', 'name': '11'}
         #
         #     url = 'http://gress.gaiafintech.com/upload'
-        #     headers = {'content-type': "application/x-www-form-urlencoded",
+        #     headers = {'content-type': "application/imgURLx-www-form-urlencoded",
         #                'gress_checker': '__gaiafintech__',
         #                "name": "test.file"}
         #

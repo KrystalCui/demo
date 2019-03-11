@@ -15,6 +15,7 @@ import threading
 from threading import Thread
 import multiprocessing as mp
 from multiprocessing import Process
+from fake_useragent import UserAgent
 
 
 class SinaFinanceNews(scrapy.Spider, Process):
@@ -50,8 +51,6 @@ class SinaFinanceNews(scrapy.Spider, Process):
         #                                  host=mongodb_args.get('host'),
         #                                  port=mongodb_args.get('port'))
         self.db = connection[mongodb_args.get('db_name')]
-        print(self.db)
-
         # self.listdict = deque([])
 
         # self.pool = mp.Pool(4)
@@ -90,9 +89,12 @@ class SinaFinanceNews(scrapy.Spider, Process):
                         #将信息列表页面的信息存入
                         # self.listdict.append(dict)
                         # print(dict['contenurl'])
-                        time.sleep(1)
-                        yield scrapy.Request(url=dic['contenurl'], meta={'item': dic}, callback=self.parse_getcontent,
-                                                     dont_filter=True, headers=self.header)
+                        #
+                        # 将信息列表页面的信息存入
+                        # self.listdict.append(dict)
+                        # print(dict['contenurl'])
+                        yield scrapy.Request(url=dic['contenurl'], meta={'item': dic, 'itemB':1}, callback=self.parse_getcontent,
+                                             dont_filter=True, headers=self.header)
                         # tup = (dict, dict['contenurl'],)
 
                         # Thread(target=self.gogetcontent, args=(tup,)).start()
@@ -129,11 +131,16 @@ class SinaFinanceNews(scrapy.Spider, Process):
         # time.sleep(1)
         dic = response.meta['item']
         div = response.xpath('.//div[@class="article"]')
+        time.sleep(1)
         ps = div.xpath('.//p')
         if ps == [] :
             ps = div.xpath('.//div/p')
-        if ps == [] :
-            ps = response.xpath('.//div[@id="artibody"]/p')
+        # if ps == [] :
+        #     time.sleep(1)
+        #     ps = response.xpath('.//div[@id="artibody"]/p')
+        # if ps == [] :
+        #     time.sleep(1)
+        #     ps = response.xpath('.//div[@id="artibody"]/div/p')
 
         #print(dict['title'])
         content = ''
@@ -158,32 +165,38 @@ class SinaFinanceNews(scrapy.Spider, Process):
             # except Exception as e:
             #     print(e)
         # print(content)
+        if content == '':
+            timesNum = response.meta['itemB']
+            if timesNum < 3:
+                timesNum += 1
+                yield scrapy.Request(url=response.url, callback=self.parse_getcontent, meta={'item': dic, 'itemB': timesNum}, dont_filter=True, headers=self.header)
+        else:
+            item = InformationAggregationItem()
+            item['content'] = content
+            crawler.info("content:%s", content)
 
-        item = InformationAggregationItem()
-        item['content'] = content
-        crawler.info("content:%s", content)
-        #此处标题,摘要,子标题相同
-        title = dic['title']
-        item['title'] = title
-        crawler.info("title:%s", title)
-        item['abstract'] = title
-        crawler.info("abstract:%s", title)
-        item['subtitle'] = title
-        crawler.info("subtitle:%s", title)
-        item['state'] = 0
-        crawler.info("state:%s", item['state'])
-        item['newstime'] = dic['newstime']
-        crawler.info("newstime:%s", item['newstime'])
-        item['datasource'] = '新浪财经'
-        crawler.info("datasource:%s", item['datasource'])
+            #此处标题,摘要,子标题相同
+            title = dic['title']
+            item['title'] = title
+            crawler.info("title:%s", title)
+            item['abstract'] = title
+            crawler.info("abstract:%s", title)
+            item['subtitle'] = title
+            crawler.info("subtitle:%s", title)
+            item['state'] = 0
+            crawler.info("state:%s", item['state'])
+            item['newstime'] = dic['newstime']
+            crawler.info("newstime:%s", item['newstime'])
+            item['datasource'] = '新浪财经'
+            crawler.info("datasource:%s", item['datasource'])
 
-        hkey = "informationaggregation_filter"
-        try:
-            if self.server.hget(hkey, title) is None:
-                self.server.hset(hkey, title, title)
-                self.db['informationaggregation'].insert(dict(item))
-        except Exception as e:
-            crawler.into("本次新浪财经存入失败原因:%s", e)
+            hkey = "informationaggregation_filter"
+            try:
+                if self.server.hget(hkey, title) is None:
+                    self.server.hset(hkey, title, title)
+                    self.db['informationaggregation'].insert(dict(item))
+            except Exception as e:
+                crawler.into("本次新浪财经存入失败原因:%s", e)
 
 
 if __name__ == '__main__':
