@@ -51,7 +51,7 @@ mongodb:
 
 redis:
     host: 192.168.88.105
-    port: 6379
+    port: 5534
     password: gaiaspider
     cookies: 1                   # store and fetch cookies
     # store fetched urls and results,so you can decide whether retry to crawl the urls or not

@@ -131,7 +131,7 @@ SCHEDULER_QUEUE_CLASS = 'scrapy_redis.queue.SpiderPriorityQueue'
 # DEPTH_LIMIT = 1
 
 REDIS_HOST = '192.168.88.105'
-REDIS_PORT = 6379
+REDIS_PORT = 5534
 REDIS_DB = 3
 REDIS_PASSWORD = 'gaiaspider'
 REDIS_PARAMS = {

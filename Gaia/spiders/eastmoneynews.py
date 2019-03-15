@@ -26,8 +26,8 @@ class EastMoneyNewsSpider(scrapy.Spider, Process):
         # redis
         pool = redis.ConnectionPool(
             host=redis_args.get('host'),
-            #port=redis_args.get('port'),
-            port='5534',
+            port=redis_args.get('port'),
+            # port='5534',
             db=redis_args.get('id_name'),
             password=redis_args.get('password')
         )

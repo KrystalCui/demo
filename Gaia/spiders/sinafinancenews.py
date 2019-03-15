@@ -27,7 +27,7 @@ class SinaFinanceNews(scrapy.Spider, Process):
         #redis
         pool = redis.ConnectionPool(
             host=redis_args.get('host'),
-            port='5534',#修改后可进行外网访问
+            port=redis_args.get('port'),
             db=redis_args.get('id_name'),
             password=redis_args.get('password')
         )
