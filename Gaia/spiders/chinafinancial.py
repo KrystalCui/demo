@@ -4,7 +4,7 @@ from Gaia.items import DomesticCommodityExchangeItem
 from Gaia.logger import crawler
 
 class chinafinancial(scrapy.Spider):
-    name = '中国金融期货交易所F10资料(请勿多次爬取)'
+    name = '中金所F10资料(请勿多次爬取)'
 
     def __init__(self):
         self.urlpre = 'http://www.cffex.com.cn'
@@ -108,4 +108,4 @@ class chinafinancial(scrapy.Spider):
         yield item
 
 if __name__ == "__main__":
-    cmdline.execute("scrapy crawl 中国金融期货交易所F10资料(请勿多次爬取)".split())
+    cmdline.execute("scrapy crawl 中金所F10资料(请勿多次爬取)".split())
