@@ -37,7 +37,7 @@ class SevenTwentyFourNewsSchedule:
         request = urllib.request.Request(self.url)
         response = urllib.request.urlopen(request)
         content = response.read().decode("utf-8")
-        splitnum = content.rfind('=') + 1
+        splitnum = content.find('=') + 1
         jsoncotent = json.loads(content[splitnum:])
         for each in jsoncotent['LivesList']:
             item = SevenTwentyFourNewsItem()

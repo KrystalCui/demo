@@ -1,5 +1,5 @@
 import scrapy
-import win32com
+# import win32com
 from Gaia.items import *
 from Gaia.logger.log import *
 import urllib.request
