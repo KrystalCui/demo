@@ -14,7 +14,7 @@ from Gaia.logger import crawler
 logger = logging.getLogger('News')
 
 class SinaSpider(scrapy.Spider):
-	name = "News"
+	name = "新闻(和讯网)"
 	rotete_user_agent = True
 
 	#在关闭爬虫之前,保存资源

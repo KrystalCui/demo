@@ -18,7 +18,7 @@ from Gaia.config import *
 
 
 class EastMoneyNewsSpider(scrapy.Spider, Process):
-    name = "EastMoneyNewsSpider"
+    name = "东方财富新闻"
     def __init__(self):
         # 配置数据库
         redis_args = get_redis_args()
@@ -273,7 +273,7 @@ class EastMoneyNewsSpider(scrapy.Spider, Process):
     # schedule.every(5).seconds.do(run)
 
 if __name__ == '__main__':
-    cmdline.execute("scrapy crawl EastMoneyNewsSpider".split())
+    cmdline.execute("scrapy crawl 东方财富新闻".split())
 
 
 

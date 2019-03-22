@@ -9,7 +9,7 @@ import scrapy
 
 
 class Futuredata30Spider(scrapy.Spider):
-    name = 'futuredata30'
+    name = 'futuredata30(勿点)'
     allowed_domains = ['stock2.finance.sina.com.cn']
     start_urls = ['http://stock2.finance.sina.com.cn/futures/api/json.php/IndexService.getInnerFuturesMiniKLine30m?symbol=cu1812']
 

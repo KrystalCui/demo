@@ -9,7 +9,7 @@ from queue import Queue
 import threading
 
 class futuresexchangeinformation(scrapy.Spider):
-    name = 'FuturesExchangeSpider'
+    name = '芝交所(勿点)'
     def __init__(self):
         self.pre = 'https://www.cmegroup.com'
         self.list = ['https://www.cmegroup.com/cn-s/trading/agricultural.html', 'https://www.cmegroup.com/cn-s/trading/metals.html',
@@ -176,4 +176,4 @@ class futuresexchangeinformation(scrapy.Spider):
             job_func()
 
 if __name__ == '__main__':
-    cmdline.execute("scrapy crawl FuturesExchangeSpider".split())
+    cmdline.execute("scrapy crawl 芝交所(勿点)".split())

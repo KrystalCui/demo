@@ -14,7 +14,7 @@ import json
 from scrapy import cmdline
 
 class ZhiChengNewsSpider(scrapy.Spider):
-    name = "ZhiChengNewsSpider"
+    name = "至诚财经"
     def __init__(self):
         self.url = 'http://www.zhicheng.com/index.php?m=seahot&c=index&a=get_more_list&page={}&pagesize=20'
         self.ISOTIMEFORMAT = '%Y-%m-%d %X'
@@ -104,7 +104,7 @@ class ZhiChengNewsSpider(scrapy.Spider):
         #     print(e)
 
 if __name__ == '__main__':
-    cmdline.execute("scrapy crawl ZhiChengNewsSpider".split())
+    cmdline.execute("scrapy crawl 至诚财经".split())
     # schedule.every(5).seconds.do(run)
 
 

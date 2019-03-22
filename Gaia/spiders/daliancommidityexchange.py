@@ -1,4 +1,4 @@
-# -*- encoding = utf-8 -*-
+# -*- coding:utf-8 -*-
 import scrapy
 from scrapy import cmdline
 import json
@@ -6,7 +6,7 @@ from Gaia.logger import crawler
 from Gaia.items import DomesticCommodityExchangeItem
 
 class daliancommodityexchange(scrapy.Spider):
-    name = "DaLianCommodityExchangeSpider"
+    name = "大商所F10资料(请勿多次爬取)"
     def __init__(self):
         self.url = 'http://www.dce.com.cn/dalianshangpin/dalianshangpin_PAGE_KEY/index.html'
         self.headers = {
@@ -131,4 +131,4 @@ class daliancommodityexchange(scrapy.Spider):
         yield item
 
 if __name__=="__main__":
-    cmdline.execute("scrapy crawl DaLianCommodityExchangeSpider".split())
+    cmdline.execute("scrapy crawl 大商所F10资料(请勿多次爬取)".split())

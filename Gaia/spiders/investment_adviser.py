@@ -14,7 +14,7 @@ from Gaia.logger import crawler
 logger = logging.getLogger('InvestmentAdviserSpider')
 
 class InvestmentAdviserSpider(scrapy.Spider):
-	name = "InvestmentAdviserSpider"
+	name = "投资顾问(和讯网)"
 	rotete_user_agent = True
 
 	#在关闭爬虫之前,保存资源

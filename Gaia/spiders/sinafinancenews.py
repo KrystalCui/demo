@@ -13,7 +13,7 @@ from multiprocessing import Process
 
 
 class SinaFinanceNews(scrapy.Spider, Process):
-    name="SinaFinanceNewsSpider"
+    name="新浪财经新闻"
     def __init__(self):
         #配置数据库
         redis_args = get_redis_args()
@@ -194,4 +194,4 @@ class SinaFinanceNews(scrapy.Spider, Process):
 
 
 if __name__ == '__main__':
-    cmdline.execute("scrapy crawl SinaFinanceNewsSpider".split())
+    cmdline.execute("scrapy crawl 新浪财经新闻".split())

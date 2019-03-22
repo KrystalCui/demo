@@ -4,7 +4,7 @@ from Gaia.logger import crawler
 from Gaia.items import DomesticCommodityExchangeItem
 
 class ineoil(scrapy.Spider):
-    name = 'ineoilspider'
+    name = '上海国际能源交易中心(建议不要重复爬取)'
 
     def __init__(self):
         self.url = 'http://www.ine.cn/products/oil/standard/text'
@@ -79,4 +79,4 @@ class ineoil(scrapy.Spider):
         yield item
 
 if __name__=="__main__":
-    cmdline.execute("scrapy crawl ineoilspider".split())
+    cmdline.execute("scrapy crawl 上海国际能源交易中心(建议不要重复爬取)".split())

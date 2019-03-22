@@ -4,7 +4,7 @@ from Gaia.items import DomesticCommodityExchangeItem
 from Gaia.logger import crawler
 
 class zhengzhoucommidityexchange(scrapy.Spider):
-    name = "zhengzhoucommidityexchangespider"
+    name = "郑商所F10资料(建议不要重复爬取)"
 
     def __init__(self):
         self.urlpre = "http://www.czce.com.cn"
@@ -129,6 +129,6 @@ class zhengzhoucommidityexchange(scrapy.Spider):
             crawler.info("当前错误信息: ", e)
 
 if __name__ == '__main__':
-    cmdline.execute("scrapy crawl zhengzhoucommidityexchangespider".split())
+    cmdline.execute("scrapy crawl 郑商所F10资料(建议不要重复爬取)".split())
 
 
