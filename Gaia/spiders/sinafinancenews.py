@@ -9,13 +9,7 @@ import redis
 import pymongo
 from urllib.parse import quote_plus as pl
 from Gaia.config import *
-# import subprocess
-# from collections import deque
-import threading
-from threading import Thread
-import multiprocessing as mp
 from multiprocessing import Process
-from fake_useragent import UserAgent
 
 
 class SinaFinanceNews(scrapy.Spider, Process):
